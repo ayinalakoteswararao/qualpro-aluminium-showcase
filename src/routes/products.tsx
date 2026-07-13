@@ -5,20 +5,13 @@ import { useState } from "react";
 import { 
   ArrowRight, 
   Check, 
-  Layers, 
   Info,
   Shield,
   Activity,
   Wind
 } from "lucide-react";
-import windowsImg from "@/assets/product-windows.jpg";
-import doorsImg from "@/assets/product-doors.jpg";
-import curtainImg from "@/assets/product-curtain.jpg";
 import glazingImg from "@/assets/product-glazing.jpg";
-import fabricationImg from "@/assets/product-fabrication.jpg";
-import commercialImg from "@/assets/project-commercial.jpg";
-import industrialImg from "@/assets/project-industrial.jpg";
-import heroImg from "@/assets/hero-factory.jpg";
+import { productsList } from "@/lib/data";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -41,96 +34,12 @@ export const Route = createFileRoute("/products")({
 
 type ProdCategory = "All" | "Glazing & Facades" | "Windows & Doors" | "ACP & Shading";
 
-const items = [
-  {
-    title: "Curtain Wall Systems",
-    category: "Glazing & Facades",
-    img: curtainImg,
-    badge: "Wind Load: 3.5 KPa",
-    desc: "Custom-engineered curtain walling systems for high-performance building envelopes, offering structural strength and modern design.",
-    specs: ["Alloy: 6063 T6", "Glass: 24-32mm DGU", "Profile Depth: Up to 150mm"],
-    features: ["Stick-built and modular facades", "Site-tested for air and water integrity", "Thermally insulated profiles"],
-  },
-  {
-    title: "Unitized Glazing Systems",
-    category: "Glazing & Facades",
-    img: glazingImg,
-    badge: "Seismic: Zone V",
-    desc: "Pre-fabricated facade panels manufactured in controlled plant environments and assembled directly on-site, ensuring speed, precision, and consistency for high-rise projects.",
-    specs: ["Pre-assembled panels", "Wind Load: 4.5 KPa", "EPDM Gasket Seals"],
-    features: ["Rapid crane-assisted installation", "Reduced on-site labor requirements", "Superior quality control and sealing"],
-  },
-  {
-    title: "Spider Glazing Systems",
-    category: "Glazing & Facades",
-    img: commercialImg,
-    badge: "Max Transparency",
-    desc: "Glass facade systems featuring point-fixed supports with stainless steel spider fittings – ideal for atriums, lobbies, and entrances that demand transparency, elegance, and minimalism.",
-    specs: ["Fittings: SUS316 Steel", "Glass: 12-19mm Laminated", "Spans: Up to 6 meters"],
-    features: ["High-grade stainless steel fittings", "Maximum natural light and transparency", "Minimalist structural frames"],
-  },
-  {
-    title: "Facade Works",
-    category: "Glazing & Facades",
-    img: fabricationImg,
-    badge: "Full Customization",
-    desc: "Comprehensive facade solutions combining design, structural engineering, fabrication, and installation to achieve stunning, weather-proof building envelopes.",
-    specs: ["Engineering: In-house", "Certification: Structural", "Mock-up tested: Yes"],
-    features: ["End-to-end building envelope execution", "Advanced structural analysis", "Tested for thermal and acoustic performance"],
-  },
-  {
-    title: "ACP Cladding (Aluminium Composite Panels)",
-    category: "ACP & Shading",
-    img: industrialImg,
-    badge: "FR Class B / A2",
-    desc: "High-quality Aluminium Composite Panel (ACP) cladding systems that provide a sleek, contemporary, and durable finish for commercial and residential exteriors.",
-    specs: ["Coating: PVDF / FEVE", "Core: Fire Retardant", "Thickness: 4mm / 6mm"],
-    features: ["Lightweight and weather-proof panels", "Excellent thermal and acoustic insulation", "Low maintenance and high impact resistance"],
-  },
-  {
-    title: "Structural Glazing",
-    category: "Glazing & Facades",
-    img: curtainImg,
-    badge: "Frameless Finish",
-    desc: "Concealed-grid frameless glass facade systems that offer clean lines and seamless glass expanses for modern commercial developments.",
-    specs: ["Sealant: Dow Corning Silicone", "Sightlines: Structural Joint", "Glass: Insulated DGU"],
-    features: ["Sleek monolithic glass appearances", "High-performance structural sealants", "Popular in IT parks and corporate offices"],
-  },
-  {
-    title: "Louvers & Sunshade Systems",
-    category: "ACP & Shading",
-    img: windowsImg,
-    badge: "Ventilation Shield",
-    desc: "Architecturally styled louvers and shading solutions designed to manage solar heat gain, improve energy efficiency, and elevate aesthetic styling.",
-    specs: ["Blades: Extruded Aluminium", "Control: Fixed or Adjustable", "Finishes: Powder Coated / Anodized"],
-    features: ["Customizable blade angles and pitches", "Enhanced ventilation with privacy control", "Extruded structural construction"],
-  },
-  {
-    title: "Skylights",
-    category: "Glazing & Facades",
-    img: heroImg,
-    badge: "Daylighting System",
-    desc: "Engineered overhead glazing systems designed to maximize daylighting in atriums, passages, and central spaces while maintaining structural strength.",
-    specs: ["EPDM Double Gaskets", "Safety Laminated Glass", "Integrated Gutters"],
-    features: ["Leak-proof design with drainage channels", "UV and impact-resistant safety glass", "Thermally broken structural framing"],
-  },
-  {
-    title: "Windows and Doors (Interior / Exterior)",
-    category: "Windows & Doors",
-    img: doorsImg,
-    badge: "Acoustic: Up to 40dB",
-    desc: "Premium quality aluminium windows and doors crafted for daily operational excellence, thermal efficiency, security, and noise isolation.",
-    specs: ["Locks: Multi-point secure", "Glass: 6mm - 24mm DGU", "Profiles: Slim Sightlines"],
-    features: ["Slim profiles for maximum glass area", "Multi-point locking security systems", "Durable rollers, seals, and hinges"],
-  },
-];
-
 function Products() {
   const [activeTab, setActiveTab] = useState<ProdCategory>("All");
 
   const filteredItems = activeTab === "All"
-    ? items
-    : items.filter(it => it.category === activeTab);
+    ? productsList
+    : productsList.filter(it => it.category === activeTab);
 
   return (
     <>
@@ -200,7 +109,9 @@ function Products() {
                         {it.category}
                       </span>
                       <h3 className="mt-1 font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                        {it.title}
+                        <Link to="/products/$productId" params={{ productId: it.id }}>
+                          {it.title}
+                        </Link>
                       </h3>
                     </div>
 
@@ -231,13 +142,20 @@ function Products() {
                 </div>
 
                 {/* Footer buttons */}
-                <div className="p-6 pt-0 mt-4">
+                <div className="p-6 pt-0 mt-4 grid grid-cols-2 gap-2">
+                  <Link
+                    to="/products/$productId"
+                    params={{ productId: it.id }}
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-primary text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 py-2.5 shadow-sm hover:shadow-card"
+                  >
+                    Explore Specs
+                  </Link>
                   <Link
                     to="/contact"
                     search={{ subject: `Inquiry regarding ${it.title}` }}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary/25 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-full py-2.5 shadow-sm hover:shadow-card"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-secondary text-xs font-semibold text-secondary-foreground hover:bg-border transition-all duration-300 py-2.5 shadow-sm"
                   >
-                    Enquire about {it.title} <ArrowRight className="h-4.5 w-4.5 transform group-hover:translate-x-1 transition-transform" />
+                    Enquire <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </article>

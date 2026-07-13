@@ -4,27 +4,13 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { useState } from "react";
 import { 
   ArrowRight, 
-  Layers, 
-  Settings, 
-  Sun, 
-  Grid as GridIcon, 
-  Compass, 
-  Activity,
-  Wind,
-  Maximize2,
   CheckCircle2,
   Cpu,
   ShieldAlert,
   Wrench
 } from "lucide-react";
 import curtainImg from "@/assets/product-curtain.jpg";
-import glazingImg from "@/assets/product-glazing.jpg";
-import commercialImg from "@/assets/project-commercial.jpg";
-import fabricationImg from "@/assets/product-fabrication.jpg";
-import industrialImg from "@/assets/project-industrial.jpg";
-import heroImg from "@/assets/hero-factory.jpg";
-import windowsImg from "@/assets/product-windows.jpg";
-import doorsImg from "@/assets/product-doors.jpg";
+import { servicesList } from "@/lib/data";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -46,81 +32,6 @@ export const Route = createFileRoute("/services")({
 });
 
 type Category = "All" | "Glazing & Façades" | "Cladding & Openings";
-
-const servicesList = [
-  {
-    num: "01 / Service",
-    title: "Curtain Wall Systems",
-    category: "Glazing & Façades",
-    img: curtainImg,
-    icon: Layers,
-    desc: "Custom-engineered curtain walling solutions designed to bear structural loads, resist wind pressures, and provide outstanding thermal insulation for mid-rise and high-rise building envelopes.",
-    features: ["Thermally broken profiles", "Site-tested for air & water infiltration", "Integrates structural & captive glazing"],
-  },
-  {
-    num: "02 / Service",
-    title: "Unitized Glazing",
-    category: "Glazing & Façades",
-    img: glazingImg,
-    icon: Activity,
-    desc: "Pre-assembled and pre-glazed façade panels manufactured in our quality-controlled Cherlapally plant. Units are crane-lifted and anchored directly to the building slab for rapid construction timelines.",
-    features: ["Fast, scaffolding-free installation", "Superior factory-sealed gaskets", "Engineered for high-rise wind loads"],
-  },
-  {
-    num: "03 / Service",
-    title: "Spider Glazing",
-    category: "Glazing & Façades",
-    img: commercialImg,
-    icon: Maximize2,
-    desc: "Point-fixed glass facades utilizing heavy-duty stainless steel spider brackets. Maximizes natural light penetration, giving lobby entrances, atriums, and showrooms a minimalist, high-transparency appearance.",
-    features: ["SUS316 stainless steel connectors", "Tempered or laminated safety glass", "Minimalist support structure depth"],
-  },
-  {
-    num: "04 / Service",
-    title: "Facade Works",
-    category: "Glazing & Façades",
-    img: fabricationImg,
-    icon: Settings,
-    desc: "Comprehensive engineering envelope service — covering architectural structural design, wind-load analysis, custom metal shop drawings, fabrication, and final site handover under director-level supervision.",
-    features: ["End-to-end envelope accountability", "Custom architectural designs", "Strict mock-up performance tests"],
-  },
-  {
-    num: "05 / Service",
-    title: "Cladding",
-    category: "Cladding & Openings",
-    img: industrialImg,
-    icon: Compass,
-    desc: "Premium Aluminium Composite Panel (ACP) and custom sheet metal cladding systems. Provides buildings with weather shielding, thermal insulation, acoustic damping, and a modern architectural finish.",
-    features: ["Fire-retardant core panel options", "Wide range of PVDF color coatings", "Low maintenance & high durability"],
-  },
-  {
-    num: "06 / Service",
-    title: "Skylights",
-    category: "Cladding & Openings",
-    img: heroImg,
-    icon: Sun,
-    desc: "Engineered overhead glass systems designed to maximize daylighting in atriums, passages, and central spaces. Built with safety-laminated glass and leak-proof drainage systems.",
-    features: ["Integrated condensations gutter channels", "High UV filtering laminated glass", "Custom slopes, domes, and structures"],
-  },
-  {
-    num: "07 / Service",
-    title: "Windows and Louvres",
-    category: "Cladding & Openings",
-    img: windowsImg,
-    icon: Wind,
-    desc: "Slim-sightline sliding, casement, and tilt-turn window systems paired with custom architectural louvres to regulate airflow, maximize viewing areas, and maintain privacy.",
-    features: ["Slim, high-strength sightlines", "Acoustic and thermal barrier profiles", "Adjustable & structural louvre blades"],
-  },
-  {
-    num: "08 / Service",
-    title: "Doors (Interior / Exterior)",
-    category: "Cladding & Openings",
-    img: doorsImg,
-    icon: GridIcon,
-    desc: "Heavy-duty aluminium door profiles including sliding, bi-folding, hinged, and pivot systems designed for continuous, smooth, daily operation with high-security multi-point locks.",
-    features: ["Precision rolling hardware", "Flush threshold options", "Tested for heavy duty cycles"],
-  },
-];
 
 function Services() {
   const [activeTab, setActiveTab] = useState<Category>("All");
@@ -256,8 +167,10 @@ function Services() {
                       <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">{service.category}</span>
                     </div>
 
-                    <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground">
-                      {service.title}
+                    <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground hover:text-primary transition-colors">
+                      <Link to="/services/$serviceId" params={{ serviceId: service.id }}>
+                        {service.title}
+                      </Link>
                     </h3>
                     
                     <p className="text-base leading-relaxed text-muted-foreground">
@@ -273,13 +186,20 @@ function Services() {
                       ))}
                     </div>
 
-                    <div className="pt-4">
+                    <div className="pt-4 flex flex-wrap gap-3">
+                      <Link
+                        to="/services/$serviceId"
+                        params={{ serviceId: service.id }}
+                        className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+                      >
+                        Explore Details <ArrowRight className="h-4 w-4" />
+                      </Link>
                       <Link
                         to="/contact"
                         search={{ subject: `Enquiry about ${service.title}` }}
-                        className="inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-semibold text-background hover:opacity-90 transition-opacity"
+                        className="inline-flex items-center gap-2 rounded-md border border-input bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-secondary transition-colors"
                       >
-                        Enquire about {service.title} <ArrowRight className="h-4 w-4" />
+                        Quick Inquiry
                       </Link>
                     </div>
                   </div>

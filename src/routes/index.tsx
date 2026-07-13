@@ -42,15 +42,15 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { title: "Curtain Wall Systems", img: curtainImg, icon: Layers, desc: "Custom-engineered curtain walling systems for high-performance building envelopes, offering structural strength and modern design." },
-  { title: "Unitized Glazing Systems", img: glazingImg, icon: Activity, desc: "Pre-fabricated facade panels manufactured in controlled plant environments and assembled directly on-site for speed and quality." },
-  { title: "Spider Glazing Systems", img: windowsImg, icon: Maximize2, desc: "Glass facade systems featuring point-fixed supports with stainless steel spider fittings – ideal for atriums, lobbies, and entrances." },
-  { title: "Facade Works", img: fabricationImg, icon: Wrench, desc: "Comprehensive facade solutions combining design, structural engineering, fabrication, and installation to achieve stunning building envelopes." },
-  { title: "ACP Cladding", img: fabricationImg, icon: Compass, desc: "High-quality Aluminium Composite Panel (ACP) cladding systems that provide a sleek, contemporary, and durable finish." },
-  { title: "Structural Glazing", img: curtainImg, icon: GridIcon, desc: "Concealed-grid frameless glass facade systems that offer clean lines and seamless glass expanses for modern commercial developments." },
-  { title: "Louvers & Sunshade Systems", img: windowsImg, icon: Wind, desc: "Architecturally styled louvers and shading solutions designed to manage solar heat gain, improve energy efficiency, and elevate aesthetics." },
-  { title: "Skylights", img: curtainImg, icon: Sun, desc: "Engineered overhead glazing systems designed to maximize daylighting in atriums, passages, and central spaces while maintaining structural strength." },
-  { title: "Windows & Doors (Interior/Exterior)", img: doorsImg, icon: GridIcon, desc: "Premium quality aluminium windows and doors crafted for daily operational excellence, security, and noise isolation." },
+  { id: "curtain-wall-systems", type: "services", title: "Curtain Wall Systems", img: curtainImg, icon: Layers, desc: "Custom-engineered curtain walling systems for high-performance building envelopes, offering structural strength and modern design." },
+  { id: "unitized-glazing", type: "services", title: "Unitized Glazing Systems", img: glazingImg, icon: Activity, desc: "Pre-fabricated facade panels manufactured in controlled plant environments and assembled directly on-site for speed and quality." },
+  { id: "spider-glazing", type: "services", title: "Spider Glazing Systems", img: windowsImg, icon: Maximize2, desc: "Glass facade systems featuring point-fixed supports with stainless steel spider fittings – ideal for atriums, lobbies, and entrances." },
+  { id: "facade-works", type: "services", title: "Facade Works", img: fabricationImg, icon: Wrench, desc: "Comprehensive facade solutions combining design, structural engineering, fabrication, and installation to achieve stunning building envelopes." },
+  { id: "cladding", type: "services", title: "ACP Cladding", img: fabricationImg, icon: Compass, desc: "High-quality Aluminium Composite Panel (ACP) cladding systems that provide a sleek, contemporary, and durable finish." },
+  { id: "structural-glazing", type: "products", title: "Structural Glazing", img: curtainImg, icon: GridIcon, desc: "Concealed-grid frameless glass facade systems that offer clean lines and seamless glass expanses for modern commercial developments." },
+  { id: "louvers-and-sunshade-systems", type: "products", title: "Louvers & Sunshade Systems", img: windowsImg, icon: Wind, desc: "Architecturally styled louvers and shading solutions designed to manage solar heat gain, improve energy efficiency, and elevate aesthetics." },
+  { id: "skylights", type: "services", title: "Skylights", img: curtainImg, icon: Sun, desc: "Engineered overhead glazing systems designed to maximize daylighting in atriums, passages, and central spaces while maintaining structural strength." },
+  { id: "doors", type: "services", title: "Windows & Doors (Interior/Exterior)", img: doorsImg, icon: GridIcon, desc: "Premium quality aluminium windows and doors crafted for daily operational excellence, security, and noise isolation." },
 ];
 
 const stats = [
@@ -363,18 +363,33 @@ function Home() {
                 
                 <div className="space-y-6 flex-grow flex flex-col justify-between">
                   {/* High quality image frame */}
-                  <div className="overflow-hidden rounded-2xl border border-border relative flex-grow min-h-[300px] md:min-h-[360px] lg:min-h-[400px]">
+                  <Link
+                    to={services[activeIdx].type === "services" ? "/services/$serviceId" : "/products/$productId"}
+                    params={services[activeIdx].type === "services" 
+                      ? { serviceId: services[activeIdx].id } 
+                      : { productId: services[activeIdx].id }
+                    }
+                    className="overflow-hidden rounded-2xl border border-border relative flex-grow min-h-[300px] md:min-h-[360px] lg:min-h-[400px] block cursor-pointer"
+                  >
                     <img
                       src={services[activeIdx].img}
                       alt={services[activeIdx].title}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-75 scale-100 group-hover:scale-[1.01]"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 scale-100 hover:scale-[1.02]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
-                  </div>
+                  </Link>
 
                   <div className="space-y-3">
-                    <h3 className="font-display text-2xl font-bold text-foreground">
-                      {services[activeIdx].title}
+                    <h3 className="font-display text-2xl font-bold text-foreground hover:text-primary transition-colors">
+                      <Link
+                        to={services[activeIdx].type === "services" ? "/services/$serviceId" : "/products/$productId"}
+                        params={services[activeIdx].type === "services" 
+                          ? { serviceId: services[activeIdx].id } 
+                          : { productId: services[activeIdx].id }
+                        }
+                      >
+                        {services[activeIdx].title}
+                      </Link>
                     </h3>
                     <p className="text-sm leading-relaxed text-muted-foreground">
                       {services[activeIdx].desc}
@@ -388,7 +403,11 @@ function Home() {
                   </span>
                   
                   <Link
-                    to="/services"
+                    to={services[activeIdx].type === "services" ? "/services/$serviceId" : "/products/$productId"}
+                    params={services[activeIdx].type === "services" 
+                      ? { serviceId: services[activeIdx].id } 
+                      : { productId: services[activeIdx].id }
+                    }
                     className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-2.5 text-xs font-semibold text-background hover:opacity-95 shadow-sm transition-opacity"
                   >
                     View Engineering Specs <ArrowRight className="h-4 w-4" />
