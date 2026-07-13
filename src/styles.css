@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -138,3 +137,53 @@
 @utility animate-rise {
   animation: rise 0.7s ease-out both;
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@utility font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+@utility font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+@utility font-share-tech {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+@utility font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+@utility font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+@utility font-jakarta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@utility scrollbar-thin {
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted-foreground);
+  }
+}
+
+
