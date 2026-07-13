@@ -319,9 +319,13 @@ function Home() {
                 const IconComp = s.icon;
                 const isActive = activeIdx === idx;
                 return (
-                  <button
+                  <Link
                     key={s.title}
-                    onClick={() => setActiveIdx(idx)}
+                    to={s.type === "services" ? "/services/$serviceId" : "/products/$productId"}
+                    params={s.type === "services" 
+                      ? { serviceId: s.id } 
+                      : { productId: s.id }
+                    }
                     onMouseEnter={() => setActiveIdx(idx)}
                     className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-start gap-4 relative overflow-hidden group ${
                       isActive
@@ -351,7 +355,7 @@ function Home() {
                         {s.desc}
                       </p>
                     </div>
-                  </button>
+                  </Link>
                 );
               })}
             </div>

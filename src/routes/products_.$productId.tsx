@@ -152,46 +152,46 @@ function ProductDetailComponent() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Consultation / Quote Card */}
-              <div className="rounded-2xl bg-gradient-to-br from-steel to-ink p-8 shadow-industrial border border-white/5 relative overflow-hidden text-white">
-                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/20 blur-2xl pointer-events-none" />
-                <div className="relative z-10 space-y-6">
-                  <div className="inline-flex rounded-xl bg-white/5 border border-white/10 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-widest text-primary">
-                    RFQ / INQUIRY
-                  </div>
-                  <h4 className="font-display text-2xl font-bold tracking-tight">
-                    Enquire about {product.title}
-                  </h4>
-                  <p className="text-xs text-steel-foreground/75 leading-relaxed">
-                    Get custom extrusion drawing submittals, samples, project price lists, and architectural assistance.
-                  </p>
-                  
-                  <div className="flex flex-col gap-3 pt-2">
-                    <Link
-                      to="/contact"
-                      search={{ subject: `Inquiry regarding ${product.title}` }}
-                      className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-primary py-3.5 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-industrial hover:scale-[1.02] hover:opacity-95 active:scale-[0.98] transition-all cursor-pointer"
-                    >
-                      Request Pricing & Details
-                    </Link>
-                    
-                    <a
-                      href="tel:+919848125106"
-                      className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white/5 border border-white/10 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-colors"
-                    >
-                      Contact Sales
-                    </a>
-                  </div>
-                  
-                  <div className="flex items-center justify-center gap-2 text-[10px] text-steel-foreground/40 pt-2">
-                    <ShieldCheck className="h-4.5 w-4.5 text-primary shrink-0" />
-                    <span>Tested compliant profiles with certifications.</span>
-                  </div>
+          {/* Consultation / Quote Section */}
+          <div className="mt-16 rounded-3xl bg-gradient-to-br from-steel to-ink p-8 md:p-12 shadow-industrial border border-white/5 relative overflow-hidden text-white animate-rise [animation-delay:200ms]">
+            <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <div className="space-y-4 max-w-2xl">
+                <div className="inline-flex rounded-xl bg-white/5 border border-white/10 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-widest text-primary">
+                  RFQ / INQUIRY
+                </div>
+                <h4 className="font-display text-2xl md:text-3xl font-bold tracking-tight">
+                  Enquire about {product.title}
+                </h4>
+                <p className="text-sm text-steel-foreground/75 leading-relaxed">
+                  Get custom extrusion drawing submittals, samples, project price lists, and architectural assistance.
+                </p>
+                <div className="flex items-center gap-2 text-[10px] text-steel-foreground/40 pt-2">
+                  <ShieldCheck className="h-4.5 w-4.5 text-primary shrink-0" />
+                  <span>Tested compliant profiles with certifications.</span>
                 </div>
               </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Link
+                  to="/contact"
+                  search={{ subject: `Inquiry regarding ${product.title}` }}
+                  className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-primary px-6 py-4 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-industrial hover:scale-[1.02] hover:opacity-95 active:scale-[0.98] transition-all cursor-pointer"
+                >
+                  Request Pricing & Details
+                </Link>
+                
+                <a
+                  href="tel:+919848125106"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white/5 border border-white/10 px-6 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-colors"
+                >
+                  Contact Sales
+                </a>
+              </div>
             </div>
-
           </div>
 
           {/* Related Products Section */}
