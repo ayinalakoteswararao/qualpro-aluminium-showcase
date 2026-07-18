@@ -30,6 +30,8 @@
   --color-steel: var(--steel);
   --color-steel-foreground: var(--steel-foreground);
   --color-ink: var(--ink);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-green: var(--brand-green);
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -43,8 +45,8 @@
   --card-foreground: oklch(0.18 0.035 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.035 260);
-  /* Orange accent as primary CTA */
-  --primary: oklch(0.68 0.18 45);
+  /* Forest Green as Primary Brand Color (matches QUAL text/logo left) */
+  --primary: oklch(0.48 0.155 153);
   --primary-foreground: oklch(0.99 0 0);
   /* Metallic grey */
   --secondary: oklch(0.94 0.005 250);
@@ -57,13 +59,17 @@
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.9 0.006 255);
   --input: oklch(0.92 0.006 255);
-  --ring: oklch(0.68 0.18 45);
+  --ring: oklch(0.48 0.155 153);
+  /* Custom brand tokens based on logo */
+  --brand-green: oklch(0.48 0.155 153);
+  --brand-orange: oklch(0.64 0.20 45);
+  --gradient-brand: linear-gradient(135deg, var(--brand-green), var(--brand-orange));
   /* Custom industrial tokens */
   --ink: oklch(0.16 0.03 260);           /* deep near-black blue */
   --steel: oklch(0.28 0.02 255);         /* dark steel */
   --steel-foreground: oklch(0.98 0.003 250);
   --gradient-steel: linear-gradient(135deg, oklch(0.22 0.025 258), oklch(0.32 0.02 255));
-  --gradient-heat: linear-gradient(135deg, oklch(0.72 0.19 55), oklch(0.62 0.2 30));
+  --gradient-heat: linear-gradient(135deg, oklch(0.68 0.21 45), oklch(0.58 0.19 35));
   --shadow-industrial: 0 30px 60px -25px oklch(0.18 0.035 260 / 0.35);
   --shadow-card: 0 10px 30px -15px oklch(0.18 0.035 260 / 0.18);
 }
@@ -75,7 +81,8 @@
   --card-foreground: oklch(0.98 0.003 250);
   --popover: oklch(0.2 0.03 260);
   --popover-foreground: oklch(0.98 0.003 250);
-  --primary: oklch(0.72 0.19 50);
+  /* Vibrant Green for dark mode primary */
+  --primary: oklch(0.58 0.16 153);
   --primary-foreground: oklch(0.14 0.025 260);
   --secondary: oklch(0.26 0.025 258);
   --secondary-foreground: oklch(0.98 0.003 250);
@@ -85,7 +92,9 @@
   --accent-foreground: oklch(0.98 0.003 250);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.72 0.19 50);
+  --ring: oklch(0.58 0.16 153);
+  --brand-green: oklch(0.58 0.16 153);
+  --brand-orange: oklch(0.68 0.21 45);
 }
 
 @layer base {
@@ -121,6 +130,21 @@
 }
 @utility bg-heat-gradient {
   background-image: var(--gradient-heat);
+}
+@utility bg-brand-gradient {
+  background-image: var(--gradient-brand);
+}
+@utility text-brand-orange {
+  color: var(--brand-orange);
+}
+@utility text-brand-green {
+  color: var(--brand-green);
+}
+@utility bg-brand-orange {
+  background-color: var(--brand-orange);
+}
+@utility bg-brand-green {
+  background-color: var(--brand-green);
 }
 @utility shadow-industrial {
   box-shadow: var(--shadow-industrial);

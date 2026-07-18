@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Phone, Sun, Moon, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { servicesList, productsList } from "../../lib/data";
+import { LogoIcon } from "./LogoIcon";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -24,6 +25,12 @@ export function SiteHeader() {
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
+    const root = document.documentElement;
+    if (savedTheme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
   }, []);
 
   // Update document classes and save value on theme change
@@ -42,18 +49,19 @@ export function SiteHeader() {
       <div className="container-x flex h-16 items-center justify-between">
         
         {/* Logo block */}
-        <Link to="/" className="flex items-center gap-2 group shrink-0">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-steel-gradient text-steel-foreground font-display font-black shadow-card group-hover:scale-105 group-hover:shadow-industrial transition-all duration-300 border border-white/10 text-sm">
-            Q
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-sm md:text-base font-bold tracking-tight text-foreground">
-              Qualpro <span className="text-primary">Aluminium</span>
-            </span>
-            <span className="hidden xl:inline text-[9px] uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
-              Built to last
-            </span>
-          </span>
+        <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+          <LogoIcon size={38} className="group-hover:scale-105 transition-transform duration-300" />
+          <div className="flex flex-col leading-none">
+            <div className="font-display text-sm md:text-base font-black tracking-tight uppercase">
+              <span className="text-primary">QUAL</span>
+              <span className="text-brand-orange">PRO</span>
+            </div>
+            <div className="flex items-center gap-1 text-[8px] uppercase font-bold tracking-[0.18em] text-muted-foreground mt-0.5">
+              <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
+              ALUMINIUM
+              <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
+            </div>
+          </div>
         </Link>
 
         {/* Desktop Navigation (Visible on lg screens and wider) */}

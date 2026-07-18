@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, Facebook, Instagram, Linkedin, Youtube, ShieldCheck } from "lucide-react";
+import { LogoIcon } from "./LogoIcon";
 
 export function SiteFooter() {
   return (
@@ -16,13 +17,19 @@ export function SiteFooter() {
 
         {/* Col 1: Brand & Social */}
         <div className="space-y-4">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-steel-gradient text-steel-foreground font-display font-black shadow-card border border-white/10 group-hover:scale-105 transition-transform duration-300">
-              Q
-            </span>
-            <span className="font-display text-lg font-bold text-white tracking-tight">
-              Qualpro <span className="text-primary">Aluminium</span>
-            </span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <LogoIcon size={42} className="group-hover:scale-105 transition-transform duration-300" />
+            <div className="flex flex-col leading-none text-white">
+              <div className="font-display text-lg md:text-xl font-black tracking-tight uppercase">
+                <span className="text-primary">QUAL</span>
+                <span className="text-brand-orange">PRO</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-[9px] uppercase font-bold tracking-[0.18em] text-muted-foreground mt-0.5">
+                <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
+                ALUMINIUM
+                <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
+              </div>
+            </div>
           </Link>
           <p className="text-sm text-steel-foreground/60 leading-relaxed">
             Precision engineering, state-of-the-art European fabrication machinery, and direct technical director supervision.

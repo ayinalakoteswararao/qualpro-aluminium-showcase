@@ -197,12 +197,14 @@ function Home() {
         ))}
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink/90" aria-hidden />
         <div className="container-x relative min-h-[86vh] flex flex-col justify-center py-24">
-          <p className="animate-rise text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-            Qualpro Aluminium
+          <p className="animate-rise text-xs font-bold uppercase tracking-[0.28em]">
+            <span className="text-primary">QUAL</span>
+            <span className="text-brand-orange">PRO</span>
+            <span className="text-steel-foreground/60 ml-1.5">ALUMINIUM</span>
           </p>
           <h1 className="animate-rise mt-5 font-display text-5xl md:text-7xl font-bold leading-[1.02] max-w-4xl">
             Precision Fa&ccedil;ade &<br />
-            <span className="text-primary">Fenestration Solutions.</span>
+            <span className="bg-brand-gradient bg-clip-text text-transparent">Fenestration Solutions.</span>
           </h1>
           <p className="animate-rise mt-6 max-w-xl text-lg text-steel-foreground/80">
             Qual Pro Aluminium is a market leader in fa&ccedil;ade and fenestration solutions. We provide end-to-end design, engineering, and execution that prioritize durability, performance, and aesthetics.
@@ -210,7 +212,7 @@ function Home() {
           <div className="animate-rise mt-9 flex flex-wrap gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-industrial transition hover:opacity-95"
+              className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-industrial transition hover:opacity-95"
             >
               Get a Quote <ArrowRight className="h-4 w-4" />
             </Link>
@@ -575,7 +577,7 @@ function Home() {
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-steel to-ink p-10 md:p-16 shadow-industrial border border-white/10">
             {/* Ambient glows */}
             <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-            <div className="absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+            <div className="absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-brand-orange/15 blur-3xl pointer-events-none" />
             
             <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
               <div className="max-w-2xl space-y-6">
