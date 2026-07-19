@@ -63,7 +63,7 @@ const stats = [
 const highlights = [
   { icon: Award, title: "Expert Leadership", desc: "Led by Mr. Ramesh Kommana (MS, Texas A&M) & Ms. Veda Deepthi A (MBA, IIM Calcutta)." },
   { icon: ShieldCheck, title: "Precision Design", desc: "Driven by innovation and defined by precision at every stage." },
-  { icon: Wrench, title: "End-to-End Delivery", desc: "Design, engineering, custom fabrication, and on-site execution." },
+  { icon: Wrench, title: "End-to-End Solutions", desc: "Design, engineering, custom fabrication, and on-site execution." },
   { icon: Truck, title: "Customer Success", desc: "We build strong collaborative client relationships with a focus on project delivery." },
 ];
 
