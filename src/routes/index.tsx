@@ -35,7 +35,7 @@ import commercialImg from "@/assets/project-commercial.jpg";
 import industrialImg from "@/assets/project-industrial.jpg";
 import residentialImg from "@/assets/project-residential.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { allProjects, getCategoryStyle, type Category } from "./projects";
+import { allProjects, getCategoryStyle, getProjectSlug, type Category } from "./projects";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -55,7 +55,7 @@ const services = [
 
 const stats = [
   { k: "30+", v: "Years of experience" },
-  { k: "512+", v: "Completed projects" },
+  { k: "50+", v: "Completed projects" },
   { k: "10+", v: "Years of success" },
   { k: "Hyderabad", v: "Cherlapally based" },
 ];
@@ -156,7 +156,7 @@ const heroImages = [
   doorsImg
 ];
 
-const projectCategories: Category[] = ["All", "Aviation (Airports)", "Government & Institutional", "Commercial & Infrastructure", "Residential & Townships"];
+const projectCategories: Category[] = ["All", "Aviation (Airports)", "Commercial & Infrastructure"];
 
 function Home() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -459,15 +459,15 @@ function Home() {
               description="A proven record of structural integrity, engineering precision, and architectural excellence across India."
             />
             {/* Category Filter Tabs */}
-            <div className="flex flex-row flex-wrap gap-2.5 max-w-full py-1 self-start lg:self-end">
+            <div className="flex flex-row flex-nowrap overflow-x-auto gap-2.5 max-w-full py-1 self-start lg:self-end scrollbar-none">
               {projectCategories.map((c) => (
                 <button
                   key={c}
                   onClick={() => setActiveProjectTab(c)}
-                  className={`rounded-xl px-5 py-3 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 shrink-0 border shadow-sm ${
+                  className={`rounded-xl px-5 py-3 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 shrink-0 border shadow-sm cursor-pointer ${
                     activeProjectTab === c
-                      ? "bg-primary border-primary text-primary-foreground shadow-industrial"
-                      : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-border/85"
+                      ? "bg-primary border-primary text-primary-foreground shadow-md shadow-primary/10"
+                      : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-primary/20"
                   }`}
                 >
                   {c}
@@ -476,68 +476,114 @@ function Home() {
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {displayProjects.map((p, idx) => (
-              <div
-                key={`${p.title}-${idx}`}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-industrial transition-all duration-300 flex flex-col justify-between"
-              >
-                {/* Image */}
-                <div className="relative aspect-video w-full overflow-hidden border-b border-border bg-secondary">
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-                  <span className={`absolute top-3 right-3 rounded-lg border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md ${getCategoryStyle(p.category)}`}>
-                    {p.category.split(" ")[0]}
-                  </span>
-                </div>
-
-                {/* Body */}
-                <div className="p-5 flex-grow flex flex-col justify-between">
-                  <div>
-                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground/80 font-medium">
-                      <MapPin className="h-3.5 w-3.5 text-primary" /> {p.location}
-                    </span>
-                    <h3 className="mt-2 font-display text-lg font-bold text-foreground leading-tight group-hover:text-primary transition-colors">
-                      {p.title}
-                    </h3>
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      Client: <strong className="text-foreground/90 font-semibold">{p.client}</strong>
-                    </p>
+          <div className="space-y-16">
+            {displayProjects.map((p, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <div
+                  key={p.id}
+                  className="grid gap-8 lg:grid-cols-12 items-center py-8 border-b border-border/50 dark:border-white/5 last:border-0 last:pb-0"
+                >
+                  {/* Image Column */}
+                  <div className={`lg:col-span-7 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    <Link
+                      to="/projects/$projectId"
+                      params={{ projectId: p.id || getProjectSlug(p.title) }}
+                      className="relative block aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border bg-secondary shadow-card hover:shadow-industrial transition-all duration-500 group cursor-pointer"
+                    >
+                      <img
+                        src={p.img}
+                        alt={p.title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-102"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-85" />
+                      
+                      {/* Floating Category Badge (using Green for Aviation, Orange for Commercial) */}
+                      <span className={`absolute top-4 right-4 rounded-xl border px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest backdrop-blur-md shadow-sm z-10 ${
+                        p.category === "Aviation (Airports)"
+                          ? "bg-primary border-primary/20 text-primary-foreground"
+                          : "bg-brand-orange border-brand-orange/20 text-white"
+                      }`}>
+                        {p.category}
+                      </span>
+                    </Link>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-border/80">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground/80 block mb-1.5">
-                      Scope of Work
-                    </span>
-                    <div className="flex flex-wrap gap-1">
-                      {p.scope.slice(0, 3).map((s) => (
-                        <span
-                          key={s}
-                          className="rounded bg-secondary px-2 py-0.5 text-[9px] font-semibold text-secondary-foreground"
+                  {/* Text/Content Column */}
+                  <div className={`lg:col-span-5 space-y-6 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                    <div className="space-y-3">
+                      {/* Location Badge */}
+                      <span className={`inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest ${
+                        p.category === "Aviation (Airports)" ? "text-primary" : "text-brand-orange"
+                      }`}>
+                        <MapPin className="h-3.5 w-3.5" /> {p.location}
+                      </span>
+                      
+                      <h3 className="font-display text-2xl md:text-3xl font-black tracking-tight text-foreground leading-tight">
+                        <Link
+                          to="/projects/$projectId"
+                          params={{ projectId: p.id || getProjectSlug(p.title) }}
+                          className="hover:text-primary transition-colors"
                         >
-                          {s}
-                        </span>
-                      ))}
-                      {p.scope.length > 3 && (
-                        <span className="rounded bg-secondary px-2 py-0.5 text-[9px] font-semibold text-secondary-foreground">
-                          +{p.scope.length - 3} more
-                        </span>
-                      )}
+                          {p.title}
+                        </Link>
+                      </h3>
+                    </div>
+
+                    {/* Metadata specs */}
+                    <div className="grid grid-cols-2 gap-4 border-y border-border/80 dark:border-white/5 py-4">
+                      <div>
+                        <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Client</span>
+                        <span className="text-sm font-bold text-foreground mt-0.5 block">{p.client}</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Status</span>
+                        <span className={`text-sm font-bold mt-0.5 block ${
+                          p.year === "Ongoing Project" ? "text-brand-orange" : "text-foreground"
+                        }`}>{p.year}</span>
+                      </div>
+                    </div>
+
+                    {/* Scope tags */}
+                    <div className="space-y-2">
+                      <span className="text-[9px] uppercase font-black tracking-widest text-muted-foreground">Scope of Execution</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {p.scope.map((s) => (
+                          <span
+                            key={s}
+                            className="rounded-lg bg-secondary border border-border text-secondary-foreground px-3 py-1 text-xs font-semibold"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA link - Button styled in primary logo color (Green) or accent color (Orange) */}
+                    <div className="pt-2">
+                      <Link
+                        to="/projects/$projectId"
+                        params={{ projectId: p.id || getProjectSlug(p.title) }}
+                        className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 transform hover:scale-[1.02] cursor-pointer w-full sm:w-auto ${
+                          p.category === "Aviation (Airports)"
+                            ? "bg-primary hover:opacity-95 shadow-primary/10"
+                            : "bg-brand-orange hover:opacity-95 shadow-brand-orange/10"
+                        }`}
+                      >
+                        Explore Project Case Study
+                        <ArrowRight className="h-3.5 w-3.5 transform group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 rounded-xl bg-foreground px-6 py-3.5 text-sm font-semibold text-background hover:opacity-95 shadow-industrial transition-opacity"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-brand-orange hover:opacity-95 px-8 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
             >
               Explore Full Portfolio ({allProjects.length} Projects) <ArrowRight className="h-4 w-4" />
             </Link>

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Phone, Sun, Moon, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { servicesList, productsList } from "../../lib/data";
+import { allProjects, getProjectSlug } from "../../routes/projects";
 import { LogoIcon } from "./LogoIcon";
 
 const nav = [
@@ -20,6 +21,7 @@ export function SiteHeader() {
   const [theme, setTheme] = useState("light");
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
 
   // Read initial theme from localStorage on mount
   useEffect(() => {
@@ -49,14 +51,14 @@ export function SiteHeader() {
       <div className="container-x flex h-16 items-center justify-between">
         
         {/* Logo block */}
-        <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-          <LogoIcon size={38} className="group-hover:scale-105 transition-transform duration-300" />
+        <Link to="/" className="flex items-center gap-3 group shrink-0">
+          <LogoIcon size={46} className="group-hover:scale-105 transition-transform duration-300" />
           <div className="flex flex-col leading-none">
-            <div className="font-display text-sm md:text-base font-black tracking-tight uppercase">
+            <div className="font-display text-base md:text-lg lg:text-xl font-black tracking-tight uppercase">
               <span className="text-primary">QUAL</span>
               <span className="text-brand-orange">PRO</span>
             </div>
-            <div className="flex items-center gap-1 text-[8px] uppercase font-bold tracking-[0.18em] text-muted-foreground mt-0.5">
+            <div className="flex items-center gap-1.5 text-[9px] md:text-[10px] uppercase font-bold tracking-[0.18em] text-muted-foreground mt-1">
               <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
               ALUMINIUM
               <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
@@ -64,8 +66,8 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        {/* Desktop Navigation (Visible on lg screens and wider) */}
-        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+        {/* Desktop Navigation (Visible on xl screens and wider) */}
+        <nav className="hidden xl:flex items-center gap-0.5 xl:gap-1">
           {nav.map((n) => {
             if (n.label === "Services") {
               return (
@@ -143,6 +145,44 @@ export function SiteHeader() {
               );
             }
 
+            if (n.label === "Projects") {
+              return (
+                <div key={n.to} className="relative group py-2">
+                  <Link
+                    to={n.to}
+                    className="px-2 xl:px-3.5 py-1.5 text-[10px] xl:text-xs uppercase tracking-wider font-bold text-muted-foreground rounded-full transition-all duration-300 hover:text-foreground group-hover:text-foreground group-hover:bg-secondary/70 flex items-center gap-1 shrink-0"
+                    activeProps={{ className: "text-primary-foreground bg-primary shadow-sm" }}
+                  >
+                    Projects <ChevronDown className="h-3 w-3 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-transform duration-200" />
+                  </Link>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 rounded-2xl border border-border/80 bg-background/95 backdrop-blur-md p-2.5 shadow-industrial opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="grid gap-0.5">
+                      {allProjects.map((project) => (
+                        <Link
+                          key={project.id}
+                          to="/projects/$projectId"
+                          params={{ projectId: project.id || getProjectSlug(project.title) }}
+                          className="flex items-center justify-between rounded-xl px-3 py-2 text-left text-xs font-semibold text-foreground/80 hover:text-primary hover:bg-secondary/70 transition-all duration-200"
+                        >
+                          <span>{project.title}</span>
+                          <span className="text-[9px] uppercase tracking-wider text-muted-foreground/60 font-mono">{project.year === "Ongoing Project" ? "Active" : "Done"}</span>
+                        </Link>
+                      ))}
+                      <div className="border-t border-border/60 mt-1.5 pt-1.5">
+                        <Link
+                          to="/projects"
+                          className="flex items-center justify-between rounded-xl px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 transition-colors"
+                        >
+                          <span>All Projects Showcase</span>
+                          <span>→</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={n.to}
@@ -157,8 +197,8 @@ export function SiteHeader() {
           })}
         </nav>
 
-        {/* Desktop Actions (Visible on lg screens and wider) */}
-        <div className="hidden lg:flex items-center gap-2 xl:gap-4 shrink-0">
+        {/* Desktop Actions (Visible on xl screens and wider) */}
+        <div className="hidden xl:flex items-center gap-2 xl:gap-4 shrink-0">
           
           {/* Phone Link (Icon only on lg, full number on xl) */}
           <a
@@ -194,8 +234,8 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        {/* Mobile/Tablet Controls (Visible on screens below lg) */}
-        <div className="flex lg:hidden items-center gap-3">
+        {/* Mobile/Tablet Controls (Visible on screens below xl) */}
+        <div className="flex xl:hidden items-center gap-3">
           {/* Theme Toggle Switcher */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -216,7 +256,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-lg animate-rise">
+        <div className="xl:hidden border-t border-border bg-background/95 backdrop-blur-lg animate-rise">
           <div className="container-x py-6 flex flex-col gap-2">
             {nav.map((n) => {
               if (n.label === "Services") {
@@ -287,6 +327,44 @@ export function SiteHeader() {
                             className="py-2 text-xs text-muted-foreground hover:text-primary transition-colors font-medium"
                           >
                             {product.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (n.label === "Projects") {
+                return (
+                  <div key={n.to} className="flex flex-col">
+                    <div className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-secondary transition-all duration-200">
+                      <Link
+                        to={n.to}
+                        onClick={() => setOpen(false)}
+                        className="text-sm font-semibold text-foreground/80 hover:text-foreground"
+                        activeProps={{ className: "text-primary font-bold" }}
+                      >
+                        Projects
+                      </Link>
+                      <button 
+                        onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
+                        className="p-1.5 hover:bg-border/30 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <ChevronDown className={`h-4 w-4 transform transition-transform duration-200 ${mobileProjectsOpen ? "rotate-180 text-primary" : ""}`} />
+                      </button>
+                    </div>
+                    {mobileProjectsOpen && (
+                      <div className="pl-6 pr-4 py-1.5 flex flex-col gap-1 border-l border-primary/20 ml-6 mt-1 animate-rise">
+                        {allProjects.map((project) => (
+                          <Link
+                            key={project.id}
+                            to="/projects/$projectId"
+                            params={{ projectId: project.id || getProjectSlug(project.title) }}
+                            onClick={() => setOpen(false)}
+                            className="py-2 text-xs text-muted-foreground hover:text-primary transition-colors font-medium"
+                          >
+                            {project.title}
                           </Link>
                         ))}
                       </div>
