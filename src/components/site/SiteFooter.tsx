@@ -17,19 +17,8 @@ export function SiteFooter() {
 
         {/* Col 1: Brand & Social */}
         <div className="space-y-4">
-          <Link to="/" className="flex items-center gap-3.5 group">
-            <LogoIcon size={52} className="group-hover:scale-105 transition-transform duration-300" />
-            <div className="flex flex-col leading-none text-white">
-              <div className="font-display text-xl md:text-2xl font-black tracking-tight uppercase">
-                <span className="text-primary">QUAL</span>
-                <span className="text-brand-orange">PRO</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[10px] md:text-[11px] uppercase font-bold tracking-[0.18em] text-muted-foreground mt-1">
-                <span className="h-[1.5px] w-2.5 bg-primary/70 inline-block" />
-                ALUMINIUM
-                <span className="h-[1.5px] w-2.5 bg-primary/70 inline-block" />
-              </div>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <LogoIcon size={110} className="group-hover:scale-105 transition-transform duration-300" />
           </Link>
           <p className="text-sm text-steel-foreground/60 leading-relaxed">
             Precision engineering, state-of-the-art European fabrication machinery, and direct technical director supervision.

@@ -12,18 +12,19 @@ import {
 import { PageHero } from "@/components/site/PageHero";
 import commercialImg from "@/assets/project-commercial.jpg";
 import { useState, useEffect } from "react";
+import { trackPixelEvent } from "@/lib/meta-pixel";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Qual Pro Aluminium — Request a Quote" },
+      { title: "Contact Qual Pro Aluminium - Get a Quote | Facade Company in Hyderabad" },
       {
         name: "description",
         content:
-          "Get a quote for unitized glazing, ACP cladding, structural glazing, skylights, and more. Reach Qual Pro Aluminium in Cherlapally, Hyderabad.",
+          "Request a free technical review and quote for unitized glazing, spider glazing, ACP cladding, and premium facade systems. Contact our Cherlapally office in Hyderabad.",
       },
-      { property: "og:title", content: "Contact Qual Pro Aluminium" },
-      { property: "og:description", content: "Request a quote or technical review for your façade or glazing project." },
+      { property: "og:title", content: "Contact Qual Pro Aluminium | Facade Contractor Hyderabad" },
+      { property: "og:description", content: "Get a custom engineering review and estimate for your facade system project." },
     ],
   }),
   component: Contact,
@@ -69,6 +70,15 @@ function Contact() {
 
   const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Trigger Meta Pixel Conversion Event
+    trackPixelEvent("Lead", {
+      content_category: "Quote Request",
+      content_name: quoteSector,
+      content_area_sqft: quoteArea,
+      content_location: quoteLocation,
+    });
+
     setSentQuote(true);
     // Reset fields
     setQuoteName("");
@@ -81,6 +91,13 @@ function Contact() {
 
   const handleEnquirySubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Trigger Meta Pixel Conversion Event
+    trackPixelEvent("Contact", {
+      content_category: "General Inquiry",
+      content_name: enquirySubject,
+    });
+
     setSentEnquiry(true);
     // Reset fields
     setEnquiryName("");

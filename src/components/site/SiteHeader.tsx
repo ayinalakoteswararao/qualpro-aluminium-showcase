@@ -48,22 +48,11 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/80 backdrop-blur-md shadow-[0_2px_20px_-12px_rgba(0,0,0,0.08)] transition-colors duration-300">
-      <div className="container-x flex h-16 items-center justify-between">
+      <div className="container-x flex h-24 items-center justify-between">
         
         {/* Logo block */}
-        <Link to="/" className="flex items-center gap-3 group shrink-0">
-          <LogoIcon size={46} className="group-hover:scale-105 transition-transform duration-300" />
-          <div className="flex flex-col leading-none">
-            <div className="font-display text-base md:text-lg lg:text-xl font-black tracking-tight uppercase">
-              <span className="text-primary">QUAL</span>
-              <span className="text-brand-orange">PRO</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-[9px] md:text-[10px] uppercase font-bold tracking-[0.18em] text-muted-foreground mt-1">
-              <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
-              ALUMINIUM
-              <span className="h-[1.5px] w-2 bg-primary/70 inline-block" />
-            </div>
-          </div>
+        <Link to="/" className="flex items-center group shrink-0">
+          <LogoIcon size={80} className="group-hover:scale-105 transition-transform duration-300" />
         </Link>
 
         {/* Desktop Navigation (Visible on xl screens and wider) */}

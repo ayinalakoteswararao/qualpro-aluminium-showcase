@@ -22,7 +22,15 @@ import {
   MapPin,
   Calendar,
   Box,
-  ArrowUpRight
+  ArrowUpRight,
+  CheckCircle2,
+  Store,
+  Hotel,
+  Home as HomeIcon,
+  Landmark,
+  GraduationCap,
+  Briefcase,
+  Clock
 } from "lucide-react";
 import heroImg from "@/assets/hero-factory.jpg";
 import windowsImg from "@/assets/product-windows.jpg";
@@ -38,6 +46,24 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { allProjects, getCategoryStyle, getProjectSlug, type Category } from "./projects";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Premium Facade Company in Hyderabad - Transforming Skylines | Qual Pro Aluminium" },
+      {
+        name: "description",
+        content:
+          "At Qual Pro Aluminium, we specialize in end-to-end designing, manufacturing, and installing premium aluminium facade systems in Hyderabad. Trusted facade contractor for commercial, residential & public infrastructure.",
+      },
+      { property: "og:title", content: "Premium Facade Company in Hyderabad | Qual Pro Aluminium" },
+      {
+        property: "og:description",
+        content:
+          "Qual Pro Aluminium designs, manufactures, and installs premium aluminium facade systems that combine aesthetics, functionality, and performance in Hyderabad.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "keywords", content: "Facade Company in Hyderabad, Premium Facade Company in Hyderabad, Aluminium Facade Systems Hyderabad, Curtain Wall Systems Hyderabad, Unitized Glazing Hyderabad, Structural Glazing Hyderabad, ACP Cladding Hyderabad" },
+    ],
+  }),
   component: Home,
 });
 
@@ -58,6 +84,21 @@ const stats = [
   { k: "50+", v: "Completed projects" },
   { k: "10+", v: "Years of success" },
   { k: "Hyderabad", v: "Cherlapally based" },
+];
+
+const sectors = [
+  { title: "Commercial buildings", icon: Building2, desc: "Office towers, commercial complexes, and modern skylines." },
+  { title: "IT Parks", icon: Cpu, desc: "High-tech workspaces with premium climate-controlled facades." },
+  { title: "Corporate offices", icon: Briefcase, desc: "Corporate headquarters reflecting corporate identity." },
+  { title: "Shopping malls", icon: Layers, desc: "Atriums, dynamic entrances, and wide retail glass fronts." },
+  { title: "Retail outlets", icon: Store, desc: "Sleek retail display windows and customized door systems." },
+  { title: "Educational institutions", icon: GraduationCap, desc: "Durable glazing solutions for school & university campuses." },
+  { title: "Hospitals", icon: Activity, desc: "Hygiene-first, sound-insulated facade engineering." },
+  { title: "Hotels", icon: Hotel, desc: "Premium aesthetic glazing for international hospitality suites." },
+  { title: "Industrial facilities", icon: Wrench, desc: "Heavy-duty structural framing and louvers for aeration." },
+  { title: "Residential apartments", icon: Building2, desc: "Modern residential high-rises with thermal comfort." },
+  { title: "Luxury villas", icon: HomeIcon, desc: "Custom minimal-frame sliding doors and sleek skylights." },
+  { title: "Government projects", icon: Landmark, desc: "Code-compliant, high-durability infrastructure development." }
 ];
 
 const highlights = [
@@ -181,6 +222,48 @@ function Home() {
 
   return (
     <>
+      {/* Local Business Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Qual Pro Aluminium",
+            "image": "https://qualproaluminium.com/assets/hero-factory.jpg",
+            "url": "https://qualproaluminium.com",
+            "telephone": "+919848125106",
+            "priceRange": "$$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "# 17, IDA, Phase 1, Cherlapally",
+              "addressLocality": "Hyderabad",
+              "postalCode": "500051",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "17.4645",
+              "longitude": "78.6012"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
+            "description": "Premium Facade Company in Hyderabad specializing in end-to-end design, manufacturing, and installation of premium aluminium facade systems, curtain walls, unitized glazing, and ACP cladding."
+          })
+        }}
+      />
+
       {/* HERO */}
       <section className="relative overflow-hidden bg-ink text-steel-foreground">
         {heroImages.map((img, idx) => (
@@ -202,13 +285,22 @@ function Home() {
             <span className="text-brand-orange">PRO</span>
             <span className="text-steel-foreground/60 ml-1.5">ALUMINIUM</span>
           </p>
-          <h1 className="animate-rise mt-5 font-display text-5xl md:text-7xl font-bold leading-[1.02] max-w-4xl">
-            Precision Fa&ccedil;ade &<br />
-            <span className="bg-brand-gradient bg-clip-text text-transparent">Fenestration Solutions.</span>
+          <h1 className="animate-rise mt-5 font-display max-w-5xl tracking-tight leading-[1.15]">
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+              Premium Facade Company in Hyderabad
+            </span>
+            <span className="block mt-3 bg-brand-gradient bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide font-sans">
+              Transforming Skylines &amp; Redefining Modern Architecture
+            </span>
           </h1>
-          <p className="animate-rise mt-6 max-w-xl text-lg text-steel-foreground/80">
-            Qual Pro Aluminium is a market leader in fa&ccedil;ade and fenestration solutions. We provide end-to-end design, engineering, and execution that prioritize durability, performance, and aesthetics.
-          </p>
+          <div className="animate-rise mt-8 max-w-4xl space-y-4">
+            <p className="text-base md:text-lg font-medium text-white/95 leading-relaxed">
+              At Qual Pro Aluminium, we specialize in end-to-end designing, manufacturing, and installing premium aluminium facade systems that combine aesthetics, functionality, and long-term performance.
+            </p>
+            <p className="text-sm md:text-base text-steel-foreground/75 leading-relaxed border-l-2 border-brand-orange pl-4">
+              With years of industry expertise, we have earned a reputation as a trusted Facade Company in Hyderabad, delivering high-quality solutions for commercial buildings, corporate offices, retail spaces, hospitals, educational institutions, hotels, and residential projects.
+            </p>
+          </div>
           <div className="animate-rise mt-9 flex flex-wrap gap-3">
             <Link
               to="/contact"
@@ -272,27 +364,83 @@ function Home() {
         </div>
       </section>
 
-      {/* HIGHLIGHTS */}
-      <section className="py-20">
-        <div className="container-x">
-          <SectionHeader
-            eyebrow="Why Qualpro"
-            title="Engineered for architects and owners who ship."
-            description="From alloy selection to on-site handover, every step is owned by our team. No middlemen. No compromises."
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {highlights.map((h) => (
-              <div
-                key={h.title}
-                className="group rounded-xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:shadow-industrial"
+
+
+      {/* SECTION 1: WHY QUALPRO */}
+      <section className="py-24 bg-card border-t border-border relative overflow-hidden">
+        <div className="absolute left-0 top-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+        
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">Why Qualpro</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+              Selecting the right partner for your building envelope is crucial.
+            </h2>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-12 items-start mt-8">
+            <div className="lg:col-span-7">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                As a leading <strong className="text-foreground font-semibold">Aluminium Facade Company in Hyderabad</strong>, we understand that every project has unique architectural and structural requirements.
+              </p>
+            </div>
+            
+            <div className="lg:col-span-5">
+              <div className="relative rounded-2xl bg-secondary/40 border border-border p-6 shadow-sm">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-orange rounded-l-2xl" />
+                <p className="text-base font-semibold text-foreground leading-relaxed italic">
+                  "Our commitment goes beyond installation—we work closely with architects, builders, consultants, and project owners from concept to completion."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: WHAT MAKES US DIFFERENT */}
+      <section className="py-24 bg-secondary/15 border-y border-border relative overflow-hidden">
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          <div className="max-w-xl mb-16">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange block mb-3">Our Edge</span>
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
+              What makes us different?
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">Our core values and operational strengths that set us apart.</p>
+          </div>
+
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              "Experienced facade engineering team",
+              "Premium quality aluminium systems",
+              "Modern manufacturing standards",
+              "Innovative architectural solutions",
+              "Precision installation",
+              "Timely project completion",
+              "Strict quality control",
+              "Custom-built facade systems",
+              "Competitive pricing",
+              "Reliable after-sales support"
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="group rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-industrial hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="grid h-11 w-11 place-items-center rounded-md bg-secondary text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <h.icon className="h-5 w-5" />
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mb-4">
+                  <CheckCircle2 className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{h.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.desc}</p>
+                <h4 className="font-display text-sm font-bold text-foreground leading-snug">
+                  {item}
+                </h4>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 rounded-3xl bg-gradient-to-r from-primary/10 via-brand-orange/10 to-primary/10 border border-primary/10 p-8 md:p-10 text-center max-w-4xl mx-auto">
+            <p className="text-base md:text-lg font-bold text-foreground leading-relaxed max-w-3xl mx-auto">
+              Every solution we deliver is designed to improve building appearance, energy efficiency, weather resistance, and long-term durability.
+            </p>
           </div>
         </div>
       </section>
@@ -617,50 +765,210 @@ function Home() {
         </div>
       </section>
 
+      {/* SECTION: WE SERVE (SCROLLING TICKER) */}
+      <section className="py-20 bg-card border-t border-border overflow-hidden relative">
+        <div className="container-x">
+          <div className="max-w-3xl mb-10 text-center mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">Markets We Serve</span>
+            <h3 className="font-display text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
+              We serve diverse architectural sectors
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Every project receives personalised attention, ensuring quality workmanship and timely delivery.
+            </p>
+          </div>
+        </div>
+
+        {/* Infinite Marquee Track */}
+        <div className="relative flex overflow-x-hidden w-full select-none mt-8 border-y border-border/50 py-6 bg-secondary/5">
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          
+          <div className="flex gap-12 md:gap-16 items-center animate-marquee whitespace-nowrap">
+            {/* First Copy */}
+            {sectors.map((sector, idx) => {
+              const IconComp = sector.icon;
+              // Alternate text colors and style weights for a high-end designer look
+              const textColors = [
+                "text-foreground hover:text-primary",
+                "text-brand-orange hover:text-foreground",
+                "text-primary hover:text-brand-orange"
+              ];
+              const iconColors = [
+                "text-primary",
+                "text-brand-orange",
+                "text-primary"
+              ];
+              const textColor = textColors[idx % textColors.length];
+              const iconColor = iconColors[idx % iconColors.length];
+
+              return (
+                <div 
+                  key={`serve-${idx}`} 
+                  className="flex items-center gap-4 shrink-0 cursor-default"
+                >
+                  <IconComp className={`h-6 w-6 ${iconColor} shrink-0 transition-transform duration-300 hover:scale-110`} />
+                  <span className={`font-display text-lg md:text-xl font-extrabold uppercase tracking-wider transition-colors duration-300 ${textColor}`}>
+                    {sector.title}
+                  </span>
+                </div>
+              );
+            })}
+            {/* Second Copy for Loop */}
+            {sectors.map((sector, idx) => {
+              const IconComp = sector.icon;
+              const textColors = [
+                "text-foreground hover:text-primary",
+                "text-brand-orange hover:text-foreground",
+                "text-primary hover:text-brand-orange"
+              ];
+              const iconColors = [
+                "text-primary",
+                "text-brand-orange",
+                "text-primary"
+              ];
+              const textColor = textColors[idx % textColors.length];
+              const iconColor = iconColors[idx % iconColors.length];
+
+              return (
+                <div 
+                  key={`serve-dup-${idx}`} 
+                  className="flex items-center gap-4 shrink-0 cursor-default"
+                >
+                  <IconComp className={`h-6 w-6 ${iconColor} shrink-0 transition-transform duration-300 hover:scale-110`} />
+                  <span className={`font-display text-lg md:text-xl font-extrabold uppercase tracking-wider transition-colors duration-300 ${textColor}`}>
+                    {sector.title}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: PARTNER WITH US */}
+      <section className="py-24 bg-secondary/15 border-t border-border relative overflow-hidden">
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            
+            {/* Left Column: Collaboration Pitch */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange block mb-3">Collaboration</span>
+                <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+                  Partner With Us
+                </h3>
+              </div>
+              
+              <div className="space-y-4">
+                <p className="text-lg text-foreground/95 leading-relaxed font-semibold">
+                  If you're looking for a dependable Facade Company in Hyderabad, Qual Pro Aluminium is your trusted partner for innovative exterior building solutions.
+                </p>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  From concept and design to fabrication and installation, we provide complete Commercial Facade Solutions, advanced Facade and Glazing Solutions, and reliable Facade and Fenestration solutions that deliver long-term value.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Goal & Call to Action */}
+            <div className="lg:col-span-5 bg-card border border-border rounded-3xl p-8 md:p-10 space-y-6 shadow-industrial">
+              <p className="text-base text-foreground font-medium leading-relaxed">
+                Our goal is to create visually striking, durable, and high-performing buildings through precision engineering, quality craftsmanship, and customer-focused service.
+              </p>
+              <div className="pt-6 border-t border-border/80 flex flex-col gap-4">
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Contact Qual Pro Aluminium today to discuss your project and discover how our customized aluminium facade solutions can bring your vision to life.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-orange text-white px-6 py-4 text-sm font-bold uppercase tracking-wider shadow-lg shadow-brand-orange/20 hover:opacity-95 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer text-center w-full"
+                >
+                  Contact Us Today <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* CTA BANNER */}
       <section className="py-24 bg-background border-t border-border">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-steel to-ink p-10 md:p-16 shadow-industrial border border-white/10">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-ink via-steel to-ink p-8 md:p-12 lg:p-16 shadow-industrial border border-white/10">
             {/* Ambient glows */}
-            <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-            <div className="absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-brand-orange/15 blur-3xl pointer-events-none" />
+            <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-primary/25 blur-3xl pointer-events-none" />
+            <div className="absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-brand-orange/20 blur-3xl pointer-events-none" />
             
-            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
-              <div className="max-w-2xl space-y-6">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Get Started</span>
-                <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                  Ready to spec your next project?
-                </h2>
-                <p className="text-base md:text-lg text-steel-foreground/75 leading-relaxed">
-                  Send us your drawings or requirement — you'll get a professional engineering assessment and quotation within 48 hours.
-                </p>
+            <div className="relative z-10 grid gap-12 lg:grid-cols-12 items-center">
+              
+              {/* Left Column: Heading and feature cards */}
+              <div className="lg:col-span-7 space-y-8 animate-rise">
+                <div className="space-y-4">
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange">Get Started</span>
+                  <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                    Ready to spec your next project?
+                  </h2>
+                  <p className="text-base md:text-lg text-steel-foreground/80 leading-relaxed max-w-xl">
+                    Send us your drawings or requirement — you'll get a professional engineering assessment and quotation within 48 hours.
+                  </p>
+                </div>
                 
-                {/* Visual badges/features inside CTA */}
-                <div className="pt-4 flex flex-wrap gap-4 text-xs text-steel-foreground/60">
-                  <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    <span>Free Technical Review</span>
+                {/* Redesigned card features instead of basic pills */}
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {[
+                    { title: "Free Technical Review", desc: "Complete drawing & spec scan", icon: ShieldCheck, color: "text-primary bg-primary/10 border-primary/20" },
+                    { title: "48-Hour Turnaround", desc: "Fast engineering estimation", icon: Clock, color: "text-brand-orange bg-brand-orange/10 border-brand-orange/20" },
+                    { title: "Direct Partner Review", desc: "MS/MBA director oversight", icon: Award, color: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20" }
+                  ].map((feat, idx) => {
+                    const IconComponent = feat.icon;
+                    return (
+                      <div 
+                        key={idx} 
+                        className="rounded-2xl border border-white/5 bg-white/5 p-5 backdrop-blur-sm hover:border-white/10 hover:bg-white/10 transition-all duration-300 group"
+                      >
+                        <div className={`grid h-10 w-10 place-items-center rounded-xl border ${feat.color} transition-all duration-300 group-hover:scale-105`}>
+                          <IconComponent className="h-5 w-5" />
+                        </div>
+                        <h4 className="mt-4 text-sm font-bold text-white leading-snug">
+                          {feat.title}
+                        </h4>
+                        <p className="mt-1 text-xs text-steel-foreground/60 leading-relaxed">
+                          {feat.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right Column: Premium CTA Conversion Card */}
+              <div className="lg:col-span-5 animate-rise [animation-delay:150ms]">
+                <div className="relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md p-8 md:p-10 space-y-6 shadow-2xl flex flex-col justify-between items-center text-center group hover:border-primary/30 transition-all duration-300">
+                  <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-brand-orange/10 blur-2xl group-hover:bg-brand-orange/15 transition-colors" />
+                  
+                  <div className="space-y-3 relative z-10">
+                    <h3 className="font-display text-xl font-bold text-white">
+                      Request a Custom Quote
+                    </h3>
+                    <p className="text-xs md:text-sm text-steel-foreground/75 leading-relaxed">
+                      Submit your architectural plans or engineering documents. Our senior estimators will deliver a custom proposal in 48 hours.
+                    </p>
                   </div>
-                  <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    <span>48-Hour Turnaround</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    <span>Direct Director Review</span>
+
+                  <div className="w-full pt-4 border-t border-white/10 relative z-10 flex flex-col items-center">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-brand-orange px-8 py-4.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/25 hover:opacity-95 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer w-full text-center"
+                    >
+                      Request a Quote <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
 
-              <div className="shrink-0">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-5 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-industrial hover:scale-[1.03] hover:opacity-95 active:scale-[0.98] transition-all duration-300 group cursor-pointer"
-                >
-                  Request a Quote
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
             </div>
           </div>
         </div>

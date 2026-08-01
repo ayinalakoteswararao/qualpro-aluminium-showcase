@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { useState } from "react";
-import { Search, MapPin, Building2, ShieldCheck, Plane, Calendar, Box, ArrowRight, Award, Map, Shield } from "lucide-react";
+import { Search, MapPin, Building2, ShieldCheck, Plane, Calendar, Box, ArrowRight, Award, Map as MapIcon, Shield } from "lucide-react";
 import residentialImg from "@/assets/project-residential.jpg";
 import commercialImg from "@/assets/project-commercial.jpg";
 import industrialImg from "@/assets/project-industrial.jpg";
@@ -175,7 +175,7 @@ function Projects() {
             </div>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-card/45 border border-border/80">
               <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
-                <Map className="h-5 w-5" />
+                <MapIcon className="h-5 w-5" />
               </div>
               <div>
                 <span className="block text-lg font-bold font-display text-foreground">PAN-India</span>
