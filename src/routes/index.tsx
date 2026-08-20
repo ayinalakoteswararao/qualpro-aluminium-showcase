@@ -145,45 +145,6 @@ const benefits = [
   { icon: VolumeX, title: "Superior Acoustic Damping", desc: "Rigid profiles integrate perfectly with multi-layered EPDM gaskets and double-glazed units to block outdoor noise by up to 40 decibels." },
 ];
 
-const testimonials = [
-  {
-    name: "Rohit Menon",
-    role: "Principal Architect, Studio Verde",
-    quote:
-      "Qualpro's execution on our unitized glazing was flawless. Tolerances were tight and they hit every milestone.",
-  },
-  {
-    name: "Anjali Rao",
-    role: "Project Manager, Blueline Constructions",
-    quote:
-      "The quality of the ACP cladding and structural glazing is genuinely premium. They've become our go-to facade partner.",
-  },
-  {
-    name: "Farhan Khan",
-    role: "Homeowner, Palm Grove Villa",
-    quote:
-      "The customized windows and doors transformed our living space. Smooth, silent, and beautifully finished.",
-  },
-  {
-    name: "Mr. Rajesh Kumar",
-    role: "Project Director, Airport Authority of India (AAI)",
-    quote:
-      "Qualpro handled the complex canopy glazing at the new airport terminal with outstanding precision. Their design engineering stood up to all structural wind loads perfectly.",
-  },
-  {
-    name: "Mr. Devendra Sharma",
-    role: "VP Projects, KMV Projects",
-    quote:
-      "For state-level institutional developments, we needed a facade partner who understands strict code compliance. Qualpro delivered top-notch unitized glazing on schedule.",
-  },
-  {
-    name: "Mr. S. Lakshmanan",
-    role: "Senior General Manager, NCC Limited",
-    quote:
-      "Qualpro has repeatedly demonstrated their capability to scale up production. Their Cherlapally factory fabrication is fast, and on-site alignment is impeccable.",
-  },
-];
-
 const heroImages = [
   heroImg,
   airportImg,
@@ -739,32 +700,6 @@ function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 bg-secondary/40">
-        <div className="container-x">
-          <SectionHeader
-            eyebrow="Trusted by"
-            title="What our clients say."
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="rounded-xl border border-border bg-card p-6 shadow-card">
-                <svg className="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path d="M7.17 6C4.87 6 3 7.87 3 10.17V18h7v-8H6.5c0-1.66 1.34-3 3-3V6H7.17Zm10 0c-2.3 0-4.17 1.87-4.17 4.17V18h7v-8h-3.5c0-1.66 1.34-3 3-3V6h-2.33Z"/>
-                </svg>
-                <blockquote className="mt-4 text-sm leading-relaxed text-foreground">
-                  "{t.quote}"
-                </blockquote>
-                <figcaption className="mt-6 border-t border-border pt-4">
-                  <p className="font-display text-sm font-semibold text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SECTION: WE SERVE (SCROLLING TICKER) */}
       <section className="py-20 bg-card border-t border-border overflow-hidden relative">
         <div className="container-x">
@@ -891,6 +826,17 @@ function Home() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="py-20 bg-card border-t border-border relative overflow-hidden">
+        <div className="container-x relative z-10">
+          <SectionHeader
+            eyebrow="Testimonials"
+            title="What Our Clients & Partners Say"
+            description="Trusted by leading developers, architects, and infrastructure companies across India."
+          />
         </div>
       </section>
 

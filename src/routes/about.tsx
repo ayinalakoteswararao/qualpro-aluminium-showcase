@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { 
-  Target, 
-  Eye, 
-  Sparkles, 
-  Users, 
-  Gauge, 
+import {
+  Target,
+  Eye,
+  Sparkles,
+  Users,
+  Gauge,
   HeartHandshake,
   GraduationCap,
   Briefcase,
@@ -61,7 +61,7 @@ function About() {
       <section className="py-20 overflow-hidden bg-background">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-12 items-center">
-            
+
             {/* Overview Text */}
             <div className="lg:col-span-7 space-y-6 animate-rise">
               <SectionHeader
@@ -70,7 +70,7 @@ function About() {
               />
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  Qual Pro Aluminium was established with a clear purpose—to deliver world-class aluminium façade systems that combine architectural beauty with engineering precision. Over the years, we have successfully transformed this vision into reality by completing projects that reflect innovation, quality craftsmanship, and technical excellence.
+                  Over the years, we have successfully transformed this vision into reality by completing projects that reflect innovation, quality craftsmanship, and technical excellence.
                 </p>
                 <p>
                   As experienced Facade Contractors in Hyderabad, we understand that every building deserves an exterior that is not only visually impressive but also structurally sound and energy efficient. Our expertise extends across the complete lifecycle of façade development, from conceptual design and engineering to fabrication, installation, and final project delivery.
@@ -111,7 +111,7 @@ function About() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
                 </div>
-                
+
                 {/* Secondary overlapping card with image */}
                 <div className="absolute -bottom-6 -left-6 md:-left-12 w-48 h-48 overflow-hidden rounded-xl border-2 border-background shadow-industrial hidden sm:block transform hover:-translate-y-2 transition-transform duration-500">
                   <img
@@ -136,7 +136,7 @@ function About() {
       {/* LEADERSHIP SECTION */}
       <section className="py-20 bg-secondary/30 border-y border-border">
         <div className="container-x space-y-12">
-          
+
           <div className="text-center max-w-3xl mx-auto animate-rise">
             <SectionHeader
               eyebrow="Visionary Leadership"
@@ -146,11 +146,11 @@ function About() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-            
+
             {/* Mr. Ramesh Kommana Card */}
             <div className="relative rounded-2xl bg-gradient-to-b from-steel/90 to-ink p-8 text-steel-foreground shadow-industrial border border-white/10 overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300 animate-rise">
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/25 blur-2xl" />
-              
+
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative">
@@ -167,7 +167,7 @@ function About() {
 
                 <div className="space-y-4 text-sm leading-relaxed text-steel-foreground/80">
                   <p>
-                    Mr. Ramesh Kommana brings over <strong className="text-white">10 years of hands-on expertise</strong> in façade systems and engineering. 
+                    Mr. Ramesh Kommana brings over <strong className="text-white">10 years of hands-on expertise</strong> in façade systems and engineering.
                     An MS graduate from <strong className="text-white">Texas A&M University</strong>, he previously worked with global MNCs, bringing international standards and technical depth to the company.
                   </p>
                   <p>
@@ -195,7 +195,7 @@ function About() {
             {/* Ms. Veda Deepthi A Card */}
             <div className="relative rounded-2xl bg-gradient-to-b from-steel/90 to-ink p-8 text-steel-foreground shadow-industrial border border-white/10 overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300 animate-rise [animation-delay:150ms]">
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-orange-500/20 blur-2xl" />
-              
+
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative">
@@ -212,7 +212,7 @@ function About() {
 
                 <div className="space-y-4 text-sm leading-relaxed text-steel-foreground/80">
                   <p>
-                    Ms. Veda Deepthi A complements this with <strong className="text-white">two decades (20+ years) of experience</strong> in strategy and risk consulting, having worked with the Big Four consulting firms. 
+                    Ms. Veda Deepthi A complements this with <strong className="text-white">two decades (20+ years) of experience</strong> in strategy and risk consulting, having worked with the Big Four consulting firms.
                     An MBA graduate from <strong className="text-white">IIM Calcutta (IIMC)</strong>, she plays a key role in driving business strategy, governance, and innovation.
                   </p>
                   <p>
@@ -253,7 +253,7 @@ function About() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3 mb-16 max-w-5xl mx-auto animate-rise [animation-delay:100ms]">
-            
+
             {/* Card 1: Collaborative Engineering */}
             <div className="rounded-2xl border border-border bg-card p-6 shadow-card hover:-translate-y-1 hover:shadow-industrial hover:border-primary/20 transition-all duration-300 flex flex-col justify-between">
               <div>
@@ -302,7 +302,7 @@ function About() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">
-            
+
             {/* Unitized Glazing System Card */}
             <div className="group rounded-2xl border border-border bg-card p-8 shadow-card hover:-translate-y-1 hover:shadow-industrial hover:border-primary/20 transition-all duration-300 flex flex-col justify-between animate-rise">
               <div>
@@ -315,8 +315,8 @@ function About() {
                 <h3 className="mt-6 font-display text-2xl font-bold text-foreground">Unitized Glazing Systems</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   Pre-fabricated panels manufactured in a clean, strictly controlled{" "}
-                  <Link 
-                    to="/infrastructure" 
+                  <Link
+                    to="/infrastructure"
                     search={{ machine: "lgf-cutting" }}
                     className="text-foreground font-semibold underline hover:text-primary transition-colors"
                   >
@@ -324,7 +324,7 @@ function About() {
                   </Link>{" "}
                   and shipped directly to sites for fast crane-assisted installation.
                 </p>
-                
+
                 <ul className="mt-6 space-y-2 border-t border-border pt-6">
                   <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -359,7 +359,7 @@ function About() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   Assembled piece-by-piece directly on the building structure. Provides structural layout flexibility, shorter fabrication lead times, and allows for local design adjustments.
                 </p>
-                
+
                 <ul className="mt-6 space-y-2 border-t border-border pt-6">
                   <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -389,7 +389,7 @@ function About() {
       <section className="py-20 bg-secondary/30 border-t border-border">
         <div className="container-x">
           <div className="grid gap-8 md:grid-cols-2 animate-rise">
-            
+
             {/* Mission */}
             <div className="rounded-2xl border border-border bg-card p-8 shadow-card relative overflow-hidden group hover:border-primary/20 transition-all duration-300 flex flex-col justify-between">
               <div>
@@ -460,10 +460,10 @@ function About() {
       {/* LANDMARK PROJECTS SECTION */}
       <section className="py-20 bg-card border-t border-border relative overflow-hidden">
         <div className="absolute right-0 bottom-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-        
+
         <div className="container-x relative z-10">
           <div className="grid gap-12 lg:grid-cols-12 items-center">
-            
+
             {/* Text block */}
             <div className="lg:col-span-8 space-y-6">
               <SectionHeader
