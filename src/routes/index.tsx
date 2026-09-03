@@ -30,7 +30,15 @@ import {
   Landmark,
   GraduationCap,
   Briefcase,
-  Clock
+  Clock,
+  Coins,
+  Globe,
+  Factory,
+  Leaf,
+  Table,
+  LayoutGrid,
+  Check,
+  Sparkles
 } from "lucide-react";
 import heroImg from "@/assets/hero-factory.jpg";
 import windowsImg from "@/assets/product-windows.jpg";
@@ -160,10 +168,104 @@ const heroImages = [
 
 const projectCategories: Category[] = ["All", "Aviation (Airports)", "Commercial & Infrastructure"];
 
+const whyQualProPillars = [
+  {
+    id: "01",
+    title: "Complete Responsibility",
+    subtitle: "End-to-end ownership",
+    colorTheme: "green",
+    icon: ShieldCheck,
+    tag: "100% Single-Point Contact",
+    category: "Accountability",
+    description: "Full end-to-end project lifecycle ownership from engineering design, raw material sourcing, factory fabrication, to final site erection and handover."
+  },
+  {
+    id: "02",
+    title: "Competitive Pricing",
+    subtitle: "Value without compromising quality",
+    colorTheme: "orange",
+    icon: Coins,
+    tag: "Budget & Value Optimized",
+    category: "Commercial Edge",
+    description: "Direct factory-to-site pricing and optimized engineering workflows that deliver maximum structural performance within budget constraints."
+  },
+  {
+    id: "03",
+    title: "On-Time Execution",
+    subtitle: "Disciplined planning & coordination",
+    colorTheme: "green",
+    icon: Clock,
+    tag: "Zero-Delay Delivery Protocol",
+    category: "Schedule Control",
+    description: "Strict milestone tracking, proactive site coordination, and synchronized material logistics to ensure strict adherence to project schedules."
+  },
+  {
+    id: "04",
+    title: "Façade Expertise",
+    subtitle: "Glazing, fenestration & cladding",
+    colorTheme: "green",
+    icon: Building2,
+    tag: "Advanced Envelope Engineering",
+    category: "Technical Mastery",
+    description: "Specialized expertise across unitized curtain walls, stick glazing systems, high-rise structural glazing, aluminium composite cladding (ACP), and louvers."
+  },
+  {
+    id: "05",
+    title: "Pan-India Experience",
+    subtitle: "Multi-sector project delivery",
+    colorTheme: "orange",
+    icon: Globe,
+    tag: "Nationwide Infrastructure Reach",
+    category: "Proven Track Record",
+    description: "Extensive experience completing landmark facade projects for major international airports, AIIMS medical institutes, IT hubs, and commercial towers across India."
+  },
+  {
+    id: "06",
+    title: "Integrated Capabilities",
+    subtitle: "Design to installation",
+    colorTheme: "green",
+    icon: Cpu,
+    tag: "Turnkey System Delivery",
+    category: "Full Lifecycle Scope",
+    description: "Complete in-house capability encompassing architectural design support, structural wind load analysis, CNC fabrication, and certified site installation."
+  },
+  {
+    id: "07",
+    title: "Quality & Reliability",
+    subtitle: "Structured quality control",
+    colorTheme: "green",
+    icon: Award,
+    tag: "Multi-Stage Quality Audits",
+    category: "Quality Assurance",
+    description: "Strict quality assurance protocols with factory sealing inspection, airtightness, water penetration testing, and structural integrity checks."
+  },
+  {
+    id: "08",
+    title: "In-House Fabrication",
+    subtitle: "Control over quality & timelines",
+    colorTheme: "orange",
+    icon: Factory,
+    tag: "Cherlapally Plant (25,000 Sq Ft)",
+    category: "Manufacturing Power",
+    description: "Owned state-of-the-art Cherlapally manufacturing facility with precision Italian LGF CNC machinery, pneumatic assembly lines, and master fabricators."
+  },
+  {
+    id: "09",
+    title: "Sustainable Execution",
+    subtitle: "Efficient processes & material use",
+    colorTheme: "green",
+    icon: Leaf,
+    tag: "Eco-Friendly Operations",
+    category: "Sustainability",
+    description: "Use of thermally broken aluminium profiles, recyclable alloy materials, optimized scrap management, and high-performance energy efficient glazing."
+  }
+];
+
 function Home() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [currentHeroIdx, setCurrentHeroIdx] = useState(0);
   const [activeProjectTab, setActiveProjectTab] = useState<Category>("All");
+  const [whyQualproMode, setWhyQualproMode] = useState<"table" | "matrix">("table");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -327,48 +429,361 @@ function Home() {
 
 
 
-      {/* SECTION 1: WHY QUALPRO */}
+      {/* SECTION: WHY QUAL PRO (EXECUTIVE TABLE & MATRIX FORMAT) */}
       <section className="py-24 bg-card border-t border-border relative overflow-hidden">
         <div className="absolute left-0 top-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
-        
-        <div className="container-x relative z-10">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">Why Qualpro</span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
-              Selecting the right partner for your building envelope is crucial.
-            </h2>
-          </div>
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
 
-          <div className="grid gap-8 lg:grid-cols-12 items-start mt-8">
-            <div className="lg:col-span-7">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                As a leading <strong className="text-foreground font-semibold">Aluminium Facade Company in Hyderabad</strong>, we understand that every project has unique architectural and structural requirements.
+        <div className="container-x relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">
+                Core Operational Matrix
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+                WHY QUAL PRO?
+              </h2>
+              <p className="mt-3 text-base text-muted-foreground max-w-2xl leading-relaxed">
+                Selecting the right partner for your building envelope is crucial. As a leading Aluminium Facade Company in Hyderabad with pan-India delivery, we provide end-to-end accountability across design, fabrication, and installation.
               </p>
             </div>
-            
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl bg-secondary/40 border border-border p-6 shadow-sm">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-orange rounded-l-2xl" />
-                <p className="text-base font-semibold text-foreground leading-relaxed italic">
-                  "Our commitment goes beyond installation—we work closely with architects, builders, consultants, and project owners from concept to completion."
-                </p>
+
+            {/* View switcher buttons */}
+            <div className="inline-flex items-center p-1 rounded-xl bg-secondary border border-border shrink-0 self-start md:self-auto shadow-sm">
+              <button
+                type="button"
+                onClick={() => setWhyQualproMode("table")}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                  whyQualproMode === "table"
+                    ? "bg-card text-foreground shadow-sm border border-border"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Table className="h-4 w-4 text-primary" />
+                <span>Specification Table</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setWhyQualproMode("matrix")}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                  whyQualproMode === "matrix"
+                    ? "bg-card text-foreground shadow-sm border border-border"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <LayoutGrid className="h-4 w-4 text-brand-orange" />
+                <span>Matrix Grid Table</span>
+              </button>
+            </div>
+          </div>
+
+          {whyQualproMode === "table" ? (
+            /* EXECUTIVE SPECIFICATION TABLE VIEW */
+            <div className="rounded-2xl border border-border bg-card shadow-industrial overflow-hidden transition-all duration-300">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse min-w-[750px]">
+                  <thead>
+                    <tr className="bg-secondary/70 border-b border-border text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                      <th className="py-4 px-6 w-1/4">Pillar & Capability</th>
+                      <th className="py-4 px-6 w-1/4">Core Focus</th>
+                      <th className="py-4 px-6 w-2/5">Operational Scope & Delivery</th>
+                      <th className="py-4 px-6 w-1/6 text-right">Qual Pro Standard</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/60">
+                    {whyQualProPillars.map((item) => {
+                      const IconComp = item.icon;
+                      const isGreen = item.colorTheme === "green";
+                      return (
+                        <tr
+                          key={item.id}
+                          className="group hover:bg-secondary/30 transition-colors duration-200"
+                        >
+                          <td className="py-5 px-6 align-top">
+                            <div className="flex items-center gap-3">
+                              <div
+                                className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl transition-all ${
+                                  isGreen
+                                    ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                                    : "bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
+                                }`}
+                              >
+                                <IconComp className="h-5 w-5" />
+                              </div>
+                              <div>
+                                <span className="text-[10px] font-mono text-muted-foreground block font-bold">
+                                  #{item.id}
+                                </span>
+                                <h3
+                                  className={`font-display text-base font-extrabold leading-snug ${
+                                    isGreen
+                                      ? "text-emerald-600 dark:text-emerald-400"
+                                      : "text-brand-orange dark:text-amber-500"
+                                  }`}
+                                >
+                                  {item.title}
+                                </h3>
+                              </div>
+                            </div>
+                          </td>
+
+                          <td className="py-5 px-6 align-top">
+                            <div className="font-semibold text-sm text-foreground">
+                              {item.subtitle}
+                            </div>
+                            <span className="inline-block mt-1.5 text-[11px] text-muted-foreground font-medium bg-secondary px-2.5 py-0.5 rounded border border-border/50">
+                              {item.category}
+                            </span>
+                          </td>
+
+                          <td className="py-5 px-6 align-top">
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              {item.description}
+                            </p>
+                          </td>
+
+                          <td className="py-5 px-6 align-top text-right">
+                            <span
+                              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap border ${
+                                isGreen
+                                  ? "bg-primary/10 text-primary border-primary/20"
+                                  : "bg-brand-orange/10 text-brand-orange border-brand-orange/20"
+                              }`}
+                            >
+                              <Check className="h-3.5 w-3.5" />
+                              {item.tag}
+                            </span>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
             </div>
+          ) : (
+            /* MATRIX GRID TABLE VIEW */
+            <div className="border border-border rounded-2xl bg-card shadow-industrial overflow-hidden divide-y divide-border">
+              <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+                {whyQualProPillars.slice(0, 3).map((item) => {
+                  const IconComp = item.icon;
+                  const isGreen = item.colorTheme === "green";
+                  return (
+                    <div
+                      key={item.id}
+                      className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                            Pillar #{item.id}
+                          </span>
+                          <div
+                            className={`grid h-9 w-9 place-items-center rounded-xl transition-all ${
+                              isGreen
+                                ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                                : "bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
+                            }`}
+                          >
+                            <IconComp className="h-4 w-4" />
+                          </div>
+                        </div>
+
+                        <h3
+                          className={`font-display text-lg md:text-xl font-extrabold leading-tight ${
+                            isGreen
+                              ? "text-emerald-600 dark:text-emerald-400"
+                              : "text-brand-orange dark:text-amber-500"
+                          }`}
+                        >
+                          {item.title}
+                        </h3>
+
+                        <p className="text-xs font-semibold text-foreground/80 mt-1">
+                          {item.subtitle}
+                        </p>
+
+                        <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                        <span
+                          className={`inline-flex items-center gap-1 text-[11px] font-bold ${
+                            isGreen ? "text-primary" : "text-brand-orange"
+                          }`}
+                        >
+                          <Check className="h-3 w-3" />
+                          {item.tag}
+                        </span>
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground/70">
+                          {item.category}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+                {whyQualProPillars.slice(3, 6).map((item) => {
+                  const IconComp = item.icon;
+                  const isGreen = item.colorTheme === "green";
+                  return (
+                    <div
+                      key={item.id}
+                      className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                            Pillar #{item.id}
+                          </span>
+                          <div
+                            className={`grid h-9 w-9 place-items-center rounded-xl transition-all ${
+                              isGreen
+                                ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                                : "bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
+                            }`}
+                          >
+                            <IconComp className="h-4 w-4" />
+                          </div>
+                        </div>
+
+                        <h3
+                          className={`font-display text-lg md:text-xl font-extrabold leading-tight ${
+                            isGreen
+                              ? "text-emerald-600 dark:text-emerald-400"
+                              : "text-brand-orange dark:text-amber-500"
+                          }`}
+                        >
+                          {item.title}
+                        </h3>
+
+                        <p className="text-xs font-semibold text-foreground/80 mt-1">
+                          {item.subtitle}
+                        </p>
+
+                        <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                        <span
+                          className={`inline-flex items-center gap-1 text-[11px] font-bold ${
+                            isGreen ? "text-primary" : "text-brand-orange"
+                          }`}
+                        >
+                          <Check className="h-3 w-3" />
+                          {item.tag}
+                        </span>
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground/70">
+                          {item.category}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+                {whyQualProPillars.slice(6, 9).map((item) => {
+                  const IconComp = item.icon;
+                  const isGreen = item.colorTheme === "green";
+                  return (
+                    <div
+                      key={item.id}
+                      className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                            Pillar #{item.id}
+                          </span>
+                          <div
+                            className={`grid h-9 w-9 place-items-center rounded-xl transition-all ${
+                              isGreen
+                                ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                                : "bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
+                            }`}
+                          >
+                            <IconComp className="h-4 w-4" />
+                          </div>
+                        </div>
+
+                        <h3
+                          className={`font-display text-lg md:text-xl font-extrabold leading-tight ${
+                            isGreen
+                              ? "text-emerald-600 dark:text-emerald-400"
+                              : "text-brand-orange dark:text-amber-500"
+                          }`}
+                        >
+                          {item.title}
+                        </h3>
+
+                        <p className="text-xs font-semibold text-foreground/80 mt-1">
+                          {item.subtitle}
+                        </p>
+
+                        <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                        <span
+                          className={`inline-flex items-center gap-1 text-[11px] font-bold ${
+                            isGreen ? "text-primary" : "text-brand-orange"
+                          }`}
+                        >
+                          <Check className="h-3 w-3" />
+                          {item.tag}
+                        </span>
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground/70">
+                          {item.category}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-12 rounded-2xl bg-gradient-to-r from-primary/10 via-brand-orange/10 to-primary/10 border border-primary/15 p-6 md:p-8 text-center max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-left">
+              <h4 className="font-display text-base font-bold text-foreground">
+                Looking for a dependable façade contractor in Hyderabad or across India?
+              </h4>
+              <p className="text-xs text-muted-foreground mt-1">
+                Consult with our engineering team for technical drawings, BOQ estimation, and design advice.
+              </p>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-2.5 rounded-xl text-xs hover:bg-primary/90 transition-all shrink-0 shadow-sm"
+            >
+              Request Technical Proposal <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: WHAT MAKES US DIFFERENT */}
+      {/* SECTION: WHAT MAKES US DIFFERENT (OUR EDGE) */}
       <section className="py-24 bg-secondary/15 border-y border-border relative overflow-hidden">
         <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
 
         <div className="container-x relative z-10">
           <div className="max-w-xl mb-16">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange block mb-3">Our Edge</span>
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-orange block mb-3">
+              Our Edge
+            </span>
             <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
               What makes us different?
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">Our core values and operational strengths that set us apart.</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Our core values and operational strengths that set us apart.
+            </p>
           </div>
 
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
@@ -402,6 +817,496 @@ function Home() {
             <p className="text-base md:text-lg font-bold text-foreground leading-relaxed max-w-3xl mx-auto">
               Every solution we deliver is designed to improve building appearance, energy efficiency, weather resistance, and long-term durability.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: FAÇADE & EXTERNAL BUILDING ENVELOPE SOLUTIONS */}
+      <section className="py-24 bg-background border-t border-border relative overflow-hidden">
+        <div className="absolute right-0 top-1/4 w-[450px] h-[450px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+        <div className="absolute left-0 bottom-10 w-[450px] h-[450px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          <div className="max-w-3xl mb-14">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">
+              Building Envelope Engineering
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight uppercase">
+              FAÇADE & EXTERNAL BUILDING ENVELOPE SOLUTIONS
+            </h2>
+            <p className="mt-3 text-lg font-semibold text-primary/90">
+              Engineering for performance, precision and architectural impact.
+            </p>
+            <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+              Qual Pro Aluminium delivers integrated external envelope solutions combining engineering expertise, controlled fabrication, quality materials and disciplined site execution for superior aesthetics, durability, weather performance and long-term reliability.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Unitized Glazing",
+                badge: "Factory Prefabricated",
+                icon: Activity,
+                link: "/services/$serviceId",
+                params: { serviceId: "unitized-glazing" },
+                desc: "Factory-fabricated modular façades for rapid installation, consistent quality and large-scale performance."
+              },
+              {
+                title: "Stick Glazing",
+                badge: "Geometric Adaptability",
+                icon: GridIcon,
+                link: "/services/$serviceId",
+                params: { serviceId: "facade-works" },
+                desc: "Site-assembled curtain-wall systems adaptable to varied geometries and architectural requirements."
+              },
+              {
+                title: "Spider Glazing",
+                badge: "Point Supported",
+                icon: Maximize2,
+                link: "/services/$serviceId",
+                params: { serviceId: "spider-glazing" },
+                desc: "Point-supported glass systems for transparent entrances, atriums and feature façades."
+              },
+              {
+                title: "Aluminium Windows & Doors",
+                badge: "Engineered Fenestration",
+                icon: HomeIcon,
+                link: "/services/$serviceId",
+                params: { serviceId: "doors" },
+                desc: "Engineered fenestration systems for performance, durability and architectural integration."
+              },
+              {
+                title: "Semi-Unitized Glazing",
+                badge: "Hybrid Precision",
+                icon: Cpu,
+                link: "/services/$serviceId",
+                params: { serviceId: "unitized-glazing" },
+                desc: "Hybrid systems combining installation flexibility with high standards of finish and performance."
+              },
+              {
+                title: "Structural Glazing",
+                badge: "Frameless Glass",
+                icon: Building2,
+                link: "/products/$productId",
+                params: { productId: "structural-glazing" },
+                desc: "High-performance glazed façades creating clean, contemporary external envelopes."
+              },
+              {
+                title: "ACP / Metal Cladding",
+                badge: "Weather Protection",
+                icon: Compass,
+                link: "/services/$serviceId",
+                params: { serviceId: "cladding" },
+                desc: "Durable architectural cladding for weather protection, identity and external finishes."
+              },
+              {
+                title: "Curtain Wall Systems",
+                badge: "Integrated Envelope",
+                icon: Layers,
+                link: "/services/$serviceId",
+                params: { serviceId: "curtain-wall-systems" },
+                desc: "Integrated glazed building-envelope systems for commercial and institutional developments."
+              }
+            ].map((sol) => {
+              const IconComponent = sol.icon;
+              return (
+                <Link
+                  key={sol.title}
+                  to={sol.link}
+                  params={sol.params}
+                  className="group rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-industrial hover:-translate-y-1.5 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                        <IconComponent className="h-5 w-5" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-primary/80 bg-primary/10 px-2.5 py-1 rounded-md">
+                        {sol.badge}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                      {sol.title}
+                    </h3>
+                    <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
+                      {sol.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-border/50 flex items-center gap-1.5 text-xs font-semibold text-primary group-hover:gap-2.5 transition-all">
+                    <span>Explore System</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: INTERNAL FAÇADE & ARCHITECTURAL INTERIOR SOLUTIONS */}
+      <section className="py-24 bg-card border-t border-border relative overflow-hidden">
+        <div className="absolute left-0 top-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          {/* Header */}
+          <div className="max-w-4xl mb-14">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">
+              Interior Envelope Architecture
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight uppercase">
+              INTERNAL FAÇADE & ARCHITECTURAL INTERIOR SOLUTIONS
+            </h2>
+            <p className="mt-3 text-lg md:text-xl font-bold text-brand-orange">
+              Precision-crafted systems for contemporary interior environments.
+            </p>
+            <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+              Our internal architectural solutions combine functionality, aesthetics, durability and precision workmanship for commercial, institutional, hospitality and premium interior environments.
+            </p>
+          </div>
+
+          {/* 6 Solutions Grid / Table Layout */}
+          <div className="border border-border rounded-2xl bg-card shadow-industrial overflow-hidden divide-y divide-border mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+              {/* Item 1: Internal Glass Partitions (Green) */}
+              <div className="p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Interior System #01
+                    </span>
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <GridIcon className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                    Internal Glass Partitions
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    Engineered systems that define spaces while preserving openness, natural light and visual connectivity.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold text-primary">Spatial Definition</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Commercial & Office</span>
+                </div>
+              </div>
+
+              {/* Item 4: Frameless Glass Partitions (Orange) */}
+              <div className="p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Interior System #02
+                    </span>
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+                      <Maximize2 className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-extrabold text-brand-orange dark:text-amber-500">
+                    Frameless Glass Partitions
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    Minimalist systems maximising transparency with seamless contemporary architectural lines.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold text-brand-orange">Seamless Transparency</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Minimalist Glazing</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+              {/* Item 2: Acrylic Solid Surface (Green) */}
+              <div className="p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Interior System #03
+                    </span>
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <Sparkles className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                    Acrylic Solid Surface
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    Seamless, durable and hygienic finishes for feature walls, counters, workspaces and reception areas.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold text-primary">Hygienic & Durable</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Reception & Workspaces</span>
+                </div>
+              </div>
+
+              {/* Item 5: Lacquered Glass (Orange) */}
+              <div className="p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Interior System #04
+                    </span>
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+                      <Layers className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-extrabold text-brand-orange dark:text-amber-500">
+                    Lacquered Glass
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    Premium coloured glass finishes for feature walls, partitions, panels and decorative applications.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold text-brand-orange">Coloured Glass Finish</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Decorative Panels</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+              {/* Item 3: GFRC (Green) */}
+              <div className="p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Interior System #05
+                    </span>
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <Building2 className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                    GFRC
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    Lightweight Glass Fiber Reinforced Concrete solutions with strength and design flexibility for panels and feature elements.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold text-primary">Glass Fiber Reinforced Concrete</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Feature Elements</span>
+                </div>
+              </div>
+
+              {/* Item 6: Stainless Steel Glazing (Orange) */}
+              <div className="p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Interior System #06
+                    </span>
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+                      <ShieldCheck className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-extrabold text-brand-orange dark:text-amber-500">
+                    Stainless Steel Glazing
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    Precision-engineered glazing combining structural performance with a sophisticated premium finish.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold text-brand-orange">Structural & Sophisticated</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Premium Finish</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* INTEGRATED INTERIOR EXECUTION PIPELINE BAR */}
+          <div className="mt-12 rounded-2xl bg-secondary/30 border border-border p-6 md:p-8">
+            <h3 className="font-display text-xl md:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-tight mb-6">
+              INTEGRATED INTERIOR EXECUTION
+            </h3>
+
+            {/* Alternating 8-step bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 overflow-hidden rounded-xl">
+              {[
+                { label: "Design Coordination", color: "bg-emerald-700 text-white" },
+                { label: "Material Selection", color: "bg-brand-orange text-white" },
+                { label: "Detailing", color: "bg-emerald-700 text-white" },
+                { label: "Fabrication", color: "bg-brand-orange text-white" },
+                { label: "Installation", color: "bg-emerald-700 text-white" },
+                { label: "Finishing", color: "bg-brand-orange text-white" },
+                { label: "Quality Control", color: "bg-emerald-700 text-white" },
+                { label: "Handover", color: "bg-brand-orange text-white" }
+              ].map((step, i) => (
+                <div
+                  key={step.label}
+                  className={`${step.color} p-3.5 text-center font-display text-xs md:text-sm font-extrabold flex flex-col items-center justify-center min-h-[60px] shadow-sm hover:scale-[1.02] transition-transform`}
+                >
+                  <span className="text-[10px] opacity-80 font-mono font-bold block mb-0.5">
+                    Step {i + 1}
+                  </span>
+                  <span>{step.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-6 text-sm text-muted-foreground leading-relaxed text-center max-w-4xl mx-auto">
+              We ensure seamless integration between architectural intent and site execution, with a consistent focus on precision, workmanship, durability and finished quality.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: MANUFACTURING CAPABILITY & PROJECT EXPERIENCE */}
+      <section className="py-24 bg-background border-t border-border relative overflow-hidden">
+        <div className="absolute right-0 top-1/3 w-[450px] h-[450px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+        <div className="absolute left-0 bottom-0 w-[450px] h-[450px] rounded-full bg-brand-orange/5 blur-3xl pointer-events-none" />
+
+        <div className="container-x relative z-10">
+          <div className="max-w-4xl mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block mb-3">
+              Cherlapally Plant Infrastructure
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight uppercase">
+              MANUFACTURING CAPABILITY & PROJECT EXPERIENCE
+            </h2>
+            <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed">
+              Controlled fabrication backed by focused project experience across airport and commercial developments.
+            </p>
+          </div>
+
+          {/* 5-Column Table / Grid Layout */}
+          <div className="border border-border rounded-2xl bg-card shadow-industrial overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-border">
+              {/* Item 1: Double Head Cutting (Green) */}
+              <div className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Machinery #01
+                    </span>
+                    <div className="grid h-9 w-9 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <Wrench className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-lg md:text-xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                    Double Head Cutting
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                    Industrial multi-angle aluminium profile cutting
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-primary">High-Precision Cut</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Cherlapally</span>
+                </div>
+              </div>
+
+              {/* Item 2: CNC Machining (Orange) */}
+              <div className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Machinery #02
+                    </span>
+                    <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+                      <Cpu className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-lg md:text-xl font-extrabold text-brand-orange dark:text-amber-500">
+                    CNC Machining
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                    LGF Italy make; 4000 mm multi-axis profile processing
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-brand-orange">LGF Italy CNC</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">4000 mm Axis</span>
+                </div>
+              </div>
+
+              {/* Item 3: End Milling & Copy Router (Green) */}
+              <div className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Machinery #03
+                    </span>
+                    <div className="grid h-9 w-9 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <Layers className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-lg md:text-xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                    End Milling & Copy Router
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                    Accurate profile preparation and hardware routing
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-primary">Accurate Prep</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Hardware Routing</span>
+                </div>
+              </div>
+
+              {/* Item 4: Silicone Dispensing (Orange) */}
+              <div className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Machinery #04
+                    </span>
+                    <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+                      <ShieldCheck className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-lg md:text-xl font-extrabold text-brand-orange dark:text-amber-500">
+                    Silicone Dispensing
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                    Controlled glazing and sealing applications
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-brand-orange">Controlled Sealing</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Structural Glazing</span>
+                </div>
+              </div>
+
+              {/* Item 5: ACP Cutting & Grooving (Green) */}
+              <div className="p-6 md:p-8 bg-card hover:bg-secondary/20 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest font-bold">
+                      Machinery #05
+                    </span>
+                    <div className="grid h-9 w-9 place-items-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <Compass className="h-4 w-4" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-lg md:text-xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                    ACP Cutting & Grooving
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                    Heavy-duty architectural panel processing
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-primary">Heavy-Duty Panel</span>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Cladding Prep</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex justify-end">
+            <Link
+              to="/infrastructure"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:text-primary-foreground"
+            >
+              Explore Full Infrastructure Facility <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -640,16 +1545,22 @@ function Home() {
                     </div>
 
                     {/* Metadata specs */}
-                    <div className="grid grid-cols-2 gap-4 border-y border-border/80 dark:border-white/5 py-4">
+                    <div className="grid grid-cols-3 gap-3 border-y border-border/80 dark:border-white/5 py-4">
                       <div>
                         <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Client</span>
-                        <span className="text-sm font-bold text-foreground mt-0.5 block">{p.client}</span>
+                        <span className="text-xs font-bold text-foreground mt-0.5 block truncate" title={p.client}>{p.client}</span>
                       </div>
                       <div>
                         <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Status</span>
-                        <span className={`text-sm font-bold mt-0.5 block ${
-                          p.year === "Ongoing Project" ? "text-brand-orange" : "text-foreground"
+                        <span className={`text-xs font-bold mt-0.5 block ${
+                          p.year === "Ongoing Project" ? "text-brand-orange font-extrabold" : "text-foreground"
                         }`}>{p.year}</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Value</span>
+                        <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 block">
+                          {(p as any).value || "Custom Scope"}
+                        </span>
                       </div>
                     </div>
 
@@ -660,13 +1571,28 @@ function Home() {
                         {p.scope.map((s) => (
                           <span
                             key={s}
-                            className="rounded-lg bg-secondary border border-border text-secondary-foreground px-3 py-1 text-xs font-semibold"
+                            className="rounded-lg bg-secondary border border-border text-secondary-foreground px-2.5 py-1 text-xs font-semibold"
                           >
                             {s}
                           </span>
                         ))}
                       </div>
                     </div>
+
+                    {/* Project Highlights Preview */}
+                    {(p as any).highlights && (p as any).highlights.length > 0 && (
+                      <div className="space-y-1.5 pt-1">
+                        <span className="text-[9px] uppercase font-black tracking-widest text-muted-foreground">Key Highlights</span>
+                        <ul className="space-y-1 text-xs text-muted-foreground font-medium">
+                          {(p as any).highlights.slice(0, 2).map((hl: string, hIdx: number) => (
+                            <li key={hIdx} className="flex items-start gap-2">
+                              <span className="h-1.5 w-1.5 rounded-full bg-brand-orange mt-1.5 shrink-0" />
+                              <span className="line-clamp-2">{hl}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     {/* CTA link - Button styled in primary logo color (Green) or accent color (Orange) */}
                     <div className="pt-2">

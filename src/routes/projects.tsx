@@ -49,44 +49,69 @@ export const allProjects = [
   // --- AVIATION (AIRPORTS) ---
   {
     id: "tirupati-airport",
-    title: "Tirupati Airport",
+    title: "NITB – Tirupati Airport Project",
     category: "Aviation (Airports)" as const,
-    client: "Sam India Builtwell",
-    location: "Tirupati, AP",
-    scope: ["Structural Glazing", "ACP Cladding", "Spider Glazing"],
+    client: "Sam India Builtwell Pvt. Ltd.",
+    location: "Tirupati, Andhra Pradesh",
+    value: "₹16.40 Crores",
+    scope: ["ACP Cutting & Grooving", "Structural Glazing", "ACP Cladding", "Spider Glazing"],
     year: "Completed",
     img: tirupatiImg,
-    featured: true
-  },
-  {
-    id: "vijayawada-airport",
-    title: "Vijayawada Airport",
-    category: "Aviation (Airports)" as const,
-    client: "Simplex Infra Ltd",
-    location: "Vijayawada, AP",
-    scope: ["Structural Glazing", "ACP Cladding", "Spider Glazing"],
-    year: "Ongoing Project",
-    img: vijayawadaImg
+    featured: true,
+    highlights: [
+      "Delivered a state-of-the-art terminal façade combining strength, elegance, and energy efficiency.",
+      "Integrated modern glazing technologies to meet international airport standards.",
+      "Enhanced passenger experience with natural lighting and visually striking architecture.",
+      "Executed with precision, reflecting Qualpro Aluminium's expertise in large-scale infrastructure projects."
+    ]
   },
   {
     id: "rajahmundry-airport",
-    title: "Rajahmundry Airport",
+    title: "Rajahmundry Airport Terminal",
     category: "Aviation (Airports)" as const,
-    client: "Airport Authority of India",
-    location: "Rajahmundry, AP",
-    scope: ["Structural Glazing", "ACP Cladding", "Facade Engineering"],
-    year: "Completed",
-    img: rajahmundryImg
+    client: "Reenatus",
+    location: "Rajahmundry, Andhra Pradesh",
+    value: "Ongoing Infrastructure Package",
+    scope: ["Structural Glazing", "ASD ACP Cladding", "Facade Engineering"],
+    year: "Ongoing Project",
+    img: rajahmundryImg,
+    highlights: [
+      "Partnering with Reenatus to deliver advanced façade solutions combining durability with modern aesthetics.",
+      "Structural Glazing systems designed for maximum transparency and structural strength.",
+      "ASD ACP Cladding enhancing both thermal efficiency and architectural appeal.",
+      "Seamless contemporary look maintaining resilience against environmental factors — a hallmark of our ongoing airport projects."
+    ]
+  },
+  {
+    id: "vijayawada-airport",
+    title: "Vijayawada Airport Project",
+    category: "Aviation (Airports)" as const,
+    client: "NKG",
+    location: "Vijayawada, Andhra Pradesh",
+    value: "₹15 Crores",
+    scope: ["Structural Glazing", "ACP Cladding", "Spider Glazing"],
+    year: "Ongoing Project",
+    img: vijayawadaImg,
+    highlights: [
+      "Executing a state-of-the-art terminal façade combining strength, elegance, and energy efficiency.",
+      "Integrating modern glazing technologies for large-scale aviation infrastructure.",
+      "Enhancing natural lighting and architectural appeal."
+    ]
   },
   {
     id: "kadapa-airport",
-    title: "Kadapa Airport",
+    title: "Kadapa Airport Project",
     category: "Aviation (Airports)" as const,
     client: "Airport Authority of India",
-    location: "Kadapa, AP",
-    scope: ["Structural Glazing", "ACP Cladding", "Facade Engineering"],
-    year: "Completed",
-    img: kadapaImg
+    location: "Kadapa, Andhra Pradesh",
+    value: "Awarded Façade Package",
+    scope: ["Façade Works", "Structural Glazing", "ACP Cladding"],
+    year: "Ongoing Project",
+    img: kadapaImg,
+    highlights: [
+      "New Domestic Terminal Building project is under development at Kadapa Airport.",
+      "Specialized façade works and aluminium envelope systems execution."
+    ]
   },
   // --- COMMERCIAL & INFRASTRUCTURE ---
   {

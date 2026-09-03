@@ -17,21 +17,96 @@ import {
   Activity
 } from "lucide-react";
 
-// Detailed copy from draft for the 5 major projects
+// Detailed copy from draft for the major projects
 const majorProjectsDetails: Record<string, {
   subtitle: string;
   longDesc: string;
   capabilities: string[];
+  highlights?: string[];
+  value?: string;
+  scopeDetailed?: { title: string; desc: string }[];
 }> = {
   "tirupati-airport": {
-    subtitle: "Creating a Modern and Durable Airport Façade",
-    longDesc: "Qualpro Aluminium contributed to the development of Tirupati Airport by executing specialised aluminium and façade-related works designed to meet the functional and architectural requirements of a modern airport terminal.\n\nThe project required careful coordination between engineering, fabrication and site teams to ensure accurate installation and a consistent external appearance. Materials and systems were selected to offer durability, weather resistance and ease of maintenance while complementing the architectural character of the terminal.\n\nOur involvement reflected our ability to work within an active infrastructure environment while maintaining high standards of quality, safety and execution.",
+    subtitle: "State-of-the-Art Terminal Façade (₹16.40 Cr Infrastructure Execution)",
+    value: "₹16.40 Crores",
+    longDesc: "Qualpro Aluminium contributed to the development of NITB – Tirupati Airport by executing a specialized ₹16.40 Crore façade package for main contractor Sam India Builtwell Pvt. Ltd.\n\nThe project delivered a state-of-the-art terminal building envelope combining structural strength, architectural elegance, and energy efficiency. Our scope included high-performance Structural Glazing for natural light penetration, sleek ACP Cladding for weather-resistant exterior finishes, heavy-duty ACP Cutting & Grooving, and transparent Spider Glazing with stainless steel fittings.\n\nExecuted with precision, this landmark project reflects Qualpro Aluminium's deep technical capability in delivering large-scale aviation infrastructure that meets international standards.",
     capabilities: [
-      "Aluminium façade and glazing works",
-      "Precision fabrication and installation",
-      "Coordination with project consultants and contractors",
-      "Quality and safety management",
-      "Execution in a high-visibility public infrastructure project"
+      "ACP Cutting & Grooving — Heavy-duty architectural panel processing",
+      "Structural Glazing — High-performance façade systems designed to enhance durability, aesthetics, and natural light penetration",
+      "ACP Cladding — Aluminium Composite Panels applied for a sleek, modern exterior finish with weather resistance",
+      "Spider Glazing — Frameless glass systems supported by stainless steel spider fittings for a contemporary look"
+    ],
+    highlights: [
+      "Delivered a state-of-the-art terminal façade combining strength, elegance, and energy efficiency.",
+      "Integrated modern glazing technologies to meet international airport standards.",
+      "Enhanced passenger experience with natural lighting and visually striking architecture.",
+      "Executed with precision, reflecting Qualpro Aluminium's expertise in large-scale infrastructure projects."
+    ],
+    scopeDetailed: [
+      { title: "ACP Cutting & Grooving", desc: "Heavy-duty architectural panel processing for custom profile fits." },
+      { title: "Structural Glazing", desc: "High-performance façade systems designed to enhance durability, aesthetics, and natural light penetration." },
+      { title: "ACP Cladding", desc: "Aluminium Composite Panels applied for a sleek, modern exterior finish with weather resistance." },
+      { title: "Spider Glazing", desc: "Frameless glass systems supported by stainless steel spider fittings, delivering a contemporary look." }
+    ]
+  },
+  "rajahmundry-airport": {
+    subtitle: "Ongoing Infrastructure Package — Rajahmundry Airport Terminal",
+    value: "Ongoing Infrastructure Package",
+    longDesc: "At Rajahmundry Airport Terminal, Qualpro Aluminium is partnering with client Reenatus to deliver advanced façade solutions that combine structural durability with modern aesthetics.\n\nThe scope of work includes Structural Glazing systems designed for maximum transparency and strength, alongside ASD ACP Cladding that enhances both thermal efficiency and architectural appeal.\n\nThis project reflects our expertise in integrating precision engineering with innovative aluminium solutions, ensuring the terminal’s exterior meets international standards of safety, performance, and design. The combination of glazing and ACP cladding provides a seamless, contemporary look while maintaining resilience against environmental factors — a hallmark of our ongoing airport projects.",
+    capabilities: [
+      "Structural Glazing systems for maximum transparency and structural strength",
+      "ASD ACP Cladding enhancing both thermal efficiency and architectural appeal",
+      "Precision engineering integrated with innovative aluminium solutions",
+      "Resilience against environmental factors and weather exposure"
+    ],
+    highlights: [
+      "Partnering with Reenatus to deliver advanced façade solutions combining durability with modern aesthetics.",
+      "Structural Glazing systems designed for maximum transparency and structural strength.",
+      "ASD ACP Cladding enhancing both thermal efficiency and architectural appeal.",
+      "Seamless contemporary look maintaining resilience against environmental factors — a hallmark of our ongoing airport projects."
+    ],
+    scopeDetailed: [
+      { title: "Structural Glazing", desc: "Designed for maximum transparency, acoustic comfort, and structural strength." },
+      { title: "ASD ACP Cladding", desc: "Enhances both thermal efficiency and architectural appeal across the building exterior." }
+    ]
+  },
+  "vijayawada-airport": {
+    subtitle: "State-of-the-Art Terminal Glazing (₹15 Cr Infrastructure Package)",
+    value: "₹15 Crores",
+    longDesc: "At Vijayawada Airport, Qualpro Aluminium is executing a ₹15 Crore façade project for client NKG, undertaking specialized aluminium, glazing, and cladding works.\n\nThe scope includes high-performance Structural Glazing engineered for durability, transparency, and modern aesthetics; sleek ACP Cladding for weather resistance; and frameless Spider Glazing supported by spider fittings for an open architectural expression.\n\nThe project integrates modern glazing technologies for large-scale aviation infrastructure, enhancing natural daylighting and terminal architecture.",
+    capabilities: [
+      "Structural Glazing — High-performance façade systems engineered for durability, transparency, and modern aesthetics",
+      "ACP Cladding — Aluminium Composite Panels for sleek exterior finishes with weather resistance",
+      "Spider Glazing — Frameless glass systems supported by spider fittings for open architectural expression",
+      "Large-scale aviation infrastructure execution"
+    ],
+    highlights: [
+      "Executing a state-of-the-art terminal façade combining strength, elegance and energy efficiency.",
+      "Integrating modern glazing technologies for large-scale aviation infrastructure.",
+      "Enhancing natural lighting and architectural appeal."
+    ],
+    scopeDetailed: [
+      { title: "Structural Glazing", desc: "High-performance façade systems engineered for durability, transparency and modern aesthetics." },
+      { title: "ACP Cladding", desc: "Aluminium Composite Panels for sleek exterior finishes with weather resistance." },
+      { title: "Spider Glazing", desc: "Frameless glass systems supported by spider fittings for a contemporary and open architectural expression." }
+    ]
+  },
+  "kadapa-airport": {
+    subtitle: "Ongoing Project — New Domestic Terminal Building",
+    value: "Awarded Façade Package",
+    longDesc: "At Kadapa Airport, Andhra Pradesh, Qualpro Aluminium is executing specialized façade solutions for the New Domestic Terminal Building.\n\nThe project involves the systematic engineering, fabrication, and installation of durable building envelope systems in line with project specifications. Final awarded façade package details are being actively executed under strict quality and safety standards.\n\nKadapa Airport highlights our experience in delivering regional aviation infrastructure projects with technical precision and dependable site management.",
+    capabilities: [
+      "Façade Works for New Domestic Terminal Building",
+      "Structural glazing and architectural cladding systems",
+      "Fabrication as per approved engineering drawings",
+      "Site alignment, finishing, and quality control"
+    ],
+    highlights: [
+      "New Domestic Terminal Building project is actively under development at Kadapa Airport.",
+      "Specialized façade works and aluminium envelope systems execution."
+    ],
+    scopeDetailed: [
+      { title: "Façade Works", desc: "Final awarded façade package details for the new Domestic Terminal Building." }
     ]
   },
   "mn-park": {
@@ -43,41 +118,6 @@ const majorProjectsDetails: Record<string, {
       "Custom fabrication based on project drawings",
       "Finishing and alignment control",
       "Site coordination and quality assurance"
-    ]
-  },
-  "vijayawada-airport": {
-    subtitle: "Delivering Façade Solutions for Expanding Aviation Infrastructure",
-    longDesc: "Qualpro Aluminium is currently associated with the Vijayawada Airport project, undertaking specialised aluminium, glazing and façade-related works.\n\nThe project involves detailed engineering coordination, material planning, fabrication and on-site installation in accordance with approved drawings and project specifications. Our teams work closely with the main contractor, consultants and other agencies to maintain quality, safety and progress across different work fronts.\n\nAs an ongoing project, Vijayawada Airport demonstrates Qualpro Aluminium’s capability to manage complex infrastructure assignments through structured planning, responsive coordination and dependable execution.",
-    capabilities: [
-      "Aluminium and façade system execution",
-      "Supply and installation of project-specific materials",
-      "Coordination with multiple stakeholders",
-      "Quality inspections and documentation",
-      "Progress planning for an active airport project",
-      "Compliance with safety and technical requirements"
-    ]
-  },
-  "rajahmundry-airport": {
-    subtitle: "Reliable Execution for a Major Regional Airport",
-    longDesc: "Qualpro Aluminium carried out aluminium and façade-related works for Rajahmundry Airport, contributing to the architectural and functional development of the airport terminal.\n\nAirport projects require a high level of coordination because façade, glazing and aluminium systems must integrate accurately with the building structure and other services. Our team managed fabrication, material movement and site installation through systematic planning and continuous coordination with the project team.\n\nThe completed works reflect Qualpro Aluminium’s commitment to workmanship, durability and dependable project delivery.",
-    capabilities: [
-      "Airport terminal façade works",
-      "Aluminium fabrication and installation",
-      "Structural and architectural coordination",
-      "On-site resource and material management",
-      "Quality-focused execution"
-    ]
-  },
-  "kadapa-airport": {
-    subtitle: "Aluminium and Façade Works for Public Infrastructure",
-    longDesc: "Qualpro Aluminium executed specialised aluminium and façade-related works for Kadapa Airport, supporting the development of a durable and visually coordinated terminal building.\n\nThe project involved the supply, fabrication and installation of aluminium systems in line with project drawings, approved specifications and site conditions. Our team worked to maintain accurate alignment, proper finishing and reliable performance across the installed systems.\n\nKadapa Airport highlights our experience in delivering infrastructure projects that require technical precision, effective site management and adherence to demanding quality standards.",
-    capabilities: [
-      "Aluminium architectural systems",
-      "Façade and glazing works",
-      "Fabrication as per approved drawings",
-      "Installation and finishing control",
-      "Coordination with contractors and consultants",
-      "Quality and safety compliance"
     ]
   }
 };
@@ -229,6 +269,42 @@ function ProjectDetailComponent() {
                 </div>
               </div>
 
+              {/* Project Highlights */}
+              {((detail?.highlights && detail.highlights.length > 0) || (project as any).highlights) && (
+                <div className="space-y-6 pt-2">
+                  <h3 className="font-display text-xl font-bold text-foreground flex items-center gap-2.5">
+                    <Sparkles className="h-5.5 w-5.5 text-brand-orange" /> Project Highlights
+                  </h3>
+                  <div className="space-y-3">
+                    {(detail?.highlights || (project as any).highlights)?.map((hl: string, idx: number) => (
+                      <div key={idx} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm">
+                        <span className="h-2 w-2 rounded-full bg-brand-orange mt-1.5 shrink-0" />
+                        <p className="text-sm font-semibold text-foreground leading-relaxed">{hl}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Detailed Scope Breakdown */}
+              {detail?.scopeDetailed && detail.scopeDetailed.length > 0 && (
+                <div className="space-y-6 pt-2">
+                  <h3 className="font-display text-xl font-bold text-foreground flex items-center gap-2.5">
+                    <Wrench className="h-5.5 w-5.5 text-primary" /> Scope of Work Breakdown
+                  </h3>
+                  <div className="grid gap-3 sm:grid-cols-1">
+                    {detail.scopeDetailed.map((item, idx) => (
+                      <div key={idx} className="rounded-xl border border-border bg-card p-5 space-y-1.5 shadow-sm">
+                        <h4 className="font-display text-sm font-extrabold text-emerald-600 dark:text-emerald-400">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed font-medium">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Capabilities checklist */}
               <div className="space-y-6 pt-2">
                 <h3 className="font-display text-xl font-bold text-foreground flex items-center gap-2.5">
@@ -293,6 +369,15 @@ function ProjectDetailComponent() {
                       {project.location}
                     </span>
                   </div>
+
+                  {((project as any).value || detail?.value) && (
+                    <div className="grid grid-cols-12 px-6 py-4.5 text-xs">
+                      <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Project Value</span>
+                      <span className="col-span-7 font-extrabold text-brand-orange text-right lg:text-left">
+                        {(project as any).value || detail?.value}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-12 px-6 py-4.5 text-xs">
                     <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Timeline / Year</span>
