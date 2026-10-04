@@ -178,28 +178,7 @@ function Contact() {
                 </div>
               </div>
 
-              {/* Leadership Spotlight Card */}
-              <div className="w-full rounded-3xl border border-border bg-card p-8 shadow-card relative overflow-hidden">
-                <div className="absolute right-0 top-0 h-16 w-16 bg-primary/5 rounded-bl-full animate-pulse" />
-                <h3 className="font-display text-lg font-bold text-foreground flex items-center gap-2">
-                  <Award className="h-5 w-5 text-primary" /> Engineering Leadership
-                </h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                  Our projects are directly reviewed and overseen by our founding partners, ensuring engineering integrity.
-                </p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="p-4 rounded-2xl bg-secondary/50 border border-border/80">
-                    <span className="block font-bold text-sm text-foreground">Mr. Ramesh Kommana</span>
-                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider mt-0.5 block">Director Partner</span>
-                    <span className="text-[10px] text-primary font-semibold mt-1 block">MS, Texas A&M University</span>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-secondary/50 border border-border/80">
-                    <span className="block font-bold text-sm text-foreground">Ms. Veda Deepthi A</span>
-                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider mt-0.5 block">Director Partner</span>
-                    <span className="text-[10px] text-primary font-semibold mt-1 block">MBA, IIM Calcutta</span>
-                  </div>
-                </div>
-              </div>
+
 
               {/* Interactive Map Iframe */}
               <div className="w-full overflow-hidden rounded-3xl border border-border shadow-industrial bg-card p-2 group">

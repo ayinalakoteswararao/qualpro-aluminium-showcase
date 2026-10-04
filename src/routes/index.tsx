@@ -390,42 +390,7 @@ function Home() {
         </div>
       </section>
 
-      {/* CLIENT TICKER / SCROLLING BRAND MARQUEE */}
-      <section className="border-y border-border bg-card/65 py-10 md:py-14 overflow-hidden">
-        <div className="container-x">
-          <p className="text-center text-[10px] uppercase font-bold tracking-[0.25em] text-muted-foreground/80 mb-6">
-            Trusted by Leading Developers & Infrastructure Corporates
-          </p>
-        </div>
-        <div className="relative flex overflow-x-hidden w-full select-none">
-          {/* Blur gradient mask effects on edges */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex gap-20 md:gap-24 items-center animate-marquee whitespace-nowrap">
-            {/* First list copy */}
-            {clients.map((c, idx) => {
-              const style = clientStyles[idx % clientStyles.length];
-              return (
-                <div key={idx} className="flex items-center gap-4 cursor-default shrink-0">
-                  <span className="h-2 w-2 rounded-full bg-primary/60 shrink-0" />
-                  <span className={`transition-colors duration-300 ${style}`}>{c}</span>
-                </div>
-              );
-            })}
-            {/* Duplicate copy for infinite loop */}
-            {clients.map((c, idx) => {
-              const style = clientStyles[idx % clientStyles.length];
-              return (
-                <div key={`dup-${idx}`} className="flex items-center gap-4 cursor-default shrink-0">
-                  <span className="h-2 w-2 rounded-full bg-primary/60 shrink-0" />
-                  <span className={`transition-colors duration-300 ${style}`}>{c}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+
 
 
 
