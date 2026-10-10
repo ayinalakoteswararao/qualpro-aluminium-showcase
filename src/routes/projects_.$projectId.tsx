@@ -23,13 +23,11 @@ const majorProjectsDetails: Record<string, {
   longDesc: string;
   capabilities: string[];
   highlights?: string[];
-  value?: string;
   scopeDetailed?: { title: string; desc: string }[];
 }> = {
   "tirupati-airport": {
-    subtitle: "State-of-the-Art Terminal Façade (₹16.40 Cr Infrastructure Execution)",
-    value: "₹16.40 Crores",
-    longDesc: "Qualpro Aluminium contributed to the development of NITB – Tirupati Airport by executing a specialized ₹16.40 Crore façade package for main contractor Sam India Builtwell Pvt. Ltd.\n\nThe project delivered a state-of-the-art terminal building envelope combining structural strength, architectural elegance, and energy efficiency. Our scope included high-performance Structural Glazing for natural light penetration, sleek ACP Cladding for weather-resistant exterior finishes, heavy-duty ACP Cutting & Grooving, and transparent Spider Glazing with stainless steel fittings.\n\nExecuted with precision, this landmark project reflects Qualpro Aluminium's deep technical capability in delivering large-scale aviation infrastructure that meets international standards.",
+    subtitle: "State-of-the-Art Terminal Façade Infrastructure Execution",
+    longDesc: "Qualpro Aluminium contributed to the development of NITB – Tirupati Airport by executing a specialized façade package for main contractor Sam India Builtwell Pvt. Ltd.\n\nThe project delivered a state-of-the-art terminal building envelope combining structural strength, architectural elegance, and energy efficiency. Our scope included high-performance Structural Glazing for natural light penetration, sleek ACP Cladding for weather-resistant exterior finishes, heavy-duty ACP Cutting & Grooving, and transparent Spider Glazing with stainless steel fittings.\n\nExecuted with precision, this landmark project reflects Qualpro Aluminium's deep technical capability in delivering large-scale aviation infrastructure that meets international standards.",
     capabilities: [
       "ACP Cutting & Grooving — Heavy-duty architectural panel processing",
       "Structural Glazing — High-performance façade systems designed to enhance durability, aesthetics, and natural light penetration",
@@ -51,7 +49,6 @@ const majorProjectsDetails: Record<string, {
   },
   "rajahmundry-airport": {
     subtitle: "Ongoing Infrastructure Package — Rajahmundry Airport Terminal",
-    value: "Ongoing Infrastructure Package",
     longDesc: "At Rajahmundry Airport Terminal, Qualpro Aluminium is partnering with client Reenatus to deliver advanced façade solutions that combine structural durability with modern aesthetics.\n\nThe scope of work includes Structural Glazing systems designed for maximum transparency and strength, alongside ASD ACP Cladding that enhances both thermal efficiency and architectural appeal.\n\nThis project reflects our expertise in integrating precision engineering with innovative aluminium solutions, ensuring the terminal’s exterior meets international standards of safety, performance, and design. The combination of glazing and ACP cladding provides a seamless, contemporary look while maintaining resilience against environmental factors — a hallmark of our ongoing airport projects.",
     capabilities: [
       "Structural Glazing systems for maximum transparency and structural strength",
@@ -71,9 +68,8 @@ const majorProjectsDetails: Record<string, {
     ]
   },
   "vijayawada-airport": {
-    subtitle: "State-of-the-Art Terminal Glazing (₹15 Cr Infrastructure Package)",
-    value: "₹15 Crores",
-    longDesc: "At Vijayawada Airport, Qualpro Aluminium is executing a ₹15 Crore façade project for client NKG, undertaking specialized aluminium, glazing, and cladding works.\n\nThe scope includes high-performance Structural Glazing engineered for durability, transparency, and modern aesthetics; sleek ACP Cladding for weather resistance; and frameless Spider Glazing supported by spider fittings for an open architectural expression.\n\nThe project integrates modern glazing technologies for large-scale aviation infrastructure, enhancing natural daylighting and terminal architecture.",
+    subtitle: "State-of-the-Art Terminal Glazing Infrastructure Package",
+    longDesc: "At Vijayawada Airport, Qualpro Aluminium is executing a specialized façade project for client NKG, undertaking specialized aluminium, glazing, and cladding works.\n\nThe scope includes high-performance Structural Glazing engineered for durability, transparency, and modern aesthetics; sleek ACP Cladding for weather resistance; and frameless Spider Glazing supported by spider fittings for an open architectural expression.\n\nThe project integrates modern glazing technologies for large-scale aviation infrastructure, enhancing natural daylighting and terminal architecture.",
     capabilities: [
       "Structural Glazing — High-performance façade systems engineered for durability, transparency, and modern aesthetics",
       "ACP Cladding — Aluminium Composite Panels for sleek exterior finishes with weather resistance",
@@ -370,14 +366,6 @@ function ProjectDetailComponent() {
                     </span>
                   </div>
 
-                  {((project as any).value || detail?.value) && (
-                    <div className="grid grid-cols-12 px-6 py-4.5 text-xs">
-                      <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Project Value</span>
-                      <span className="col-span-7 font-extrabold text-brand-orange text-right lg:text-left">
-                        {(project as any).value || detail?.value}
-                      </span>
-                    </div>
-                  )}
 
                   <div className="grid grid-cols-12 px-6 py-4.5 text-xs">
                     <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Timeline / Year</span>

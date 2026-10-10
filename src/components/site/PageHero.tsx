@@ -26,6 +26,10 @@ export function PageHero({
         aria-hidden
       />
       
+      {/* Ambient floating glow elements */}
+      <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary/15 blur-3xl pointer-events-none animate-pulse-glow" aria-hidden />
+      <div className="absolute -bottom-24 right-1/4 w-80 h-80 rounded-full bg-brand-orange/10 blur-3xl pointer-events-none animate-float-slow" aria-hidden />
+
       {/* Bottom-right glow if there is no image */}
       {!imageSrc && (
         <div className="absolute right-0 bottom-0 h-64 w-64 bg-primary/10 rounded-tl-full blur-3xl pointer-events-none" />
@@ -52,7 +56,7 @@ export function PageHero({
 
           {/* Right Image Block (Gap filler) */}
           {imageSrc && (
-            <div className="lg:col-span-5 relative w-full h-64 md:h-80 overflow-hidden rounded-3xl border border-white/10 shadow-industrial group animate-rise">
+            <div className="lg:col-span-5 relative w-full h-64 md:h-80 overflow-hidden rounded-3xl border border-white/10 shadow-industrial group animate-rise card-shine-effect">
               <div className="absolute inset-0 bg-primary/5 z-10 pointer-events-none group-hover:bg-transparent transition-colors duration-300" />
               <img
                 src={imageSrc}

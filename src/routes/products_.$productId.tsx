@@ -185,7 +185,7 @@ function ProductDetailComponent() {
                 </Link>
                 
                 <a
-                  href="tel:+919848125106"
+                  href="tel:+919912295143"
                   className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white/5 border border-white/10 px-6 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 transition-colors"
                 >
                   Contact Sales

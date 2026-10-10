@@ -28,12 +28,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Learn about Qual Pro Aluminium - leading Facade Contractors in Hyderabad delivering unitized glazing, stick glazing, architectural envelopes, and landmark airport projects.",
+          "Learn about Qual Pro Aluminium - leading Facade Contractors in Hyderabad delivering unitized glazing, structural glazing, architectural envelopes, and landmark airport projects.",
       },
       { property: "og:title", content: "A Legacy of Façade & Fenestration Excellence" },
       {
         property: "og:description",
-        content: "Trusted Facade Contractors in Hyderabad delivering Unitized and Stick glazing systems.",
+        content: "Trusted Facade Contractors in Hyderabad delivering Unitized and Structural glazing systems.",
       },
     ],
   }),
@@ -80,8 +80,15 @@ function About() {
                 </p>
               </div>
 
+              {/* Brand Promise & Milestone Quote */}
+              <div className="border-l-4 border-brand-orange bg-secondary/40 p-4 rounded-r-xl shadow-sm">
+                <blockquote className="font-display text-sm md:text-base font-bold text-foreground italic">
+                  “10 Years of Innovation. Every Deadline a Promise. Every Project a Milestone.”
+                </blockquote>
+              </div>
+
               {/* Quick stats panel */}
-              <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="grid grid-cols-2 gap-4 pt-2">
                 <div className="rounded-xl border border-border p-4 bg-secondary/30 hover:border-primary/30 transition-colors">
                   <div className="flex items-center gap-2 text-primary">
                     <ShieldCheck className="h-5 w-5" />
@@ -122,9 +129,9 @@ function About() {
                 </div>
 
                 {/* Hovering Badge */}
-                <div className="absolute -top-4 -right-4 bg-heat-gradient text-primary-foreground p-5 rounded-2xl shadow-industrial text-center transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute -top-4 -right-4 bg-heat-gradient text-primary-foreground p-5 rounded-2xl shadow-industrial text-center transform rotate-3 hover:rotate-0 transition-transform duration-300 animate-float-slow">
                   <span className="block font-display text-3xl font-bold">10+</span>
-                  <span className="text-[10px] uppercase font-semibold tracking-wider">Years of Success</span>
+                  <span className="text-[10px] uppercase font-semibold tracking-wider">Years of Innovation</span>
                 </div>
               </div>
             </div>
@@ -135,14 +142,14 @@ function About() {
 
 
 
-      {/* GLAZING TECHNICAL COMPETENCE (UNITIZED vs STICK) */}
+      {/* GLAZING TECHNICAL COMPETENCE (UNITIZED & STRUCTURAL) */}
       <section className="py-20 bg-background">
         <div className="container-x">
           <div className="text-center max-w-3xl mx-auto mb-12 animate-rise">
             <SectionHeader
               eyebrow="Technical Competence"
               title="Advanced Glazing Systems Capabilities"
-              description="Technical excellence is one of the strongest pillars of Qual Pro Aluminium. Unlike many companies in the industry, we possess the engineering expertise to design and execute both Unitized Glazing Systems and Stick Glazing Systems, allowing us to provide customized solutions based on each project's architectural and structural requirements."
+              description="Technical excellence is one of the strongest pillars of Qual Pro Aluminium. We possess the engineering expertise to design and execute high-performance Unitized Glazing Systems, Structural Glazing, and custom architectural envelopes, allowing us to provide customized solutions based on each project's architectural and structural requirements."
             />
           </div>
 
@@ -240,32 +247,32 @@ function About() {
               </div>
             </div>
 
-            {/* Stick Glazing System Card */}
+            {/* Structural Glazing System Card */}
             <div className="group rounded-2xl border border-border bg-card p-8 shadow-card hover:-translate-y-1 hover:shadow-industrial hover:border-primary/20 transition-all duration-300 flex flex-col justify-between animate-rise [animation-delay:150ms]">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary bg-primary/10 px-3 py-1 rounded-full">Versatility & Custom Fit</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary bg-primary/10 px-3 py-1 rounded-full">Seamless & Modern</span>
                   <div className="grid h-10 w-10 place-items-center rounded-md bg-secondary text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     <Sparkles className="h-5 w-5" />
                   </div>
                 </div>
-                <h3 className="mt-6 font-display text-2xl font-bold text-foreground">Stick Glazing Systems</h3>
+                <h3 className="mt-6 font-display text-2xl font-bold text-foreground">Structural Glazing Systems</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  Assembled piece-by-piece directly on the building structure. Provides structural layout flexibility, shorter fabrication lead times, and allows for local design adjustments.
+                  Frameless exterior glass facades bonded with high-grade structural silicones. Delivers continuous glass expanses, maximizing daylighting and contemporary aesthetic appeal.
                 </p>
 
                 <ul className="mt-6 space-y-2 border-t border-border pt-6">
                   <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    Accommodates complex building geometry and shapes
+                    Clean frameless architectural exterior appearance
                   </li>
                   <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    Requires lower initial factory tooling costs
+                    High-performance weather and structural silicone bonding
                   </li>
                   <li className="flex items-center gap-2.5 text-xs text-muted-foreground">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    Highly adaptable to site-measured tolerances
+                    Engineered for high wind load deflection resilience
                   </li>
                 </ul>
               </div>

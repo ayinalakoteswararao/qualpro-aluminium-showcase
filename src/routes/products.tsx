@@ -182,7 +182,7 @@ function Products() {
               <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
                 <Shield className="h-6 w-6" />
               </div>
-              <h4 className="font-display text-lg font-bold text-foreground">ISO & FR Standards</h4>
+              <h4 className="font-display text-lg font-bold text-foreground">Architectural & FR Standards</h4>
               <p className="text-xs text-muted-foreground max-w-xs mx-auto">
                 Uses Class 1 fire-retardant panel fillings and high-purity structural 6063 T6 alloys.
               </p>

@@ -239,7 +239,7 @@ function Infrastructure() {
               />
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  To deliver premium facade systems like unitized glazing, stick glazing, and ACP cladding, Qualpro maintains a fully integrated fabrication plant in the industrial zone of <strong className="text-foreground">Cherlapally, Hyderabad</strong>.
+                  To deliver premium facade systems like unitized glazing, structural glazing, and ACP cladding, Qualpro maintains a fully integrated fabrication plant in the industrial zone of <strong className="text-foreground">Cherlapally, Hyderabad</strong>.
                 </p>
                 <p>
                   Our facility operates under rigorous quality checks. By moving the profile cutting, end-milling, routing, and silicone glazing tasks into a clean, dust-free factory environment, we eliminate the structural and seal defects common in field-assembled facades.

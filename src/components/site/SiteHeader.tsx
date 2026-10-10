@@ -191,18 +191,18 @@ export function SiteHeader() {
           
           {/* Phone Link (Icon only on lg, full number on xl) */}
           <a
-            href="tel:+919848125106"
+            href="tel:+919912295143"
             className="flex xl:hidden h-10 w-10 items-center justify-center rounded-full bg-secondary/80 border border-border text-foreground hover:text-primary hover:bg-secondary transition-all duration-300 shadow-sm shrink-0"
             aria-label="Call us"
           >
             <Phone className="h-4 w-4" />
           </a>
           <a
-            href="tel:+919848125106"
+            href="tel:+919912295143"
             className="hidden xl:flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-foreground hover:text-primary transition-colors whitespace-nowrap shrink-0"
           >
             <Phone className="h-4 w-4 text-primary shrink-0" />
-            +91 98481 25106
+            +91 99122 95143
           </a>
 
           {/* Theme Toggle Switcher */}

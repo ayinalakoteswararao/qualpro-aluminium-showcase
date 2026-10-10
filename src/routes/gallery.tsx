@@ -25,7 +25,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "Explore the Qualpro Aluminium project and machinery gallery. Browse unitized glazing, stick curtain walls, precision doors, CNC machining centers, and plant tools.",
+          "Explore the Qualpro Aluminium project and machinery gallery. Browse unitized glazing, structural curtain walls, precision doors, CNC machining centers, and plant tools.",
       },
       { property: "og:title", content: "Qualpro Aluminium Gallery" },
       {
@@ -59,7 +59,7 @@ const galleryItems: GalleryItem[] = [
     id: "gal-2",
     title: "Double-Glazed Curtain Wall - Corporate Hub",
     category: "Glazing & Facades",
-    desc: "High-span stick curtain wall with structural joints and integrated ventilation panels.",
+    desc: "High-span engineered curtain wall with structural joints and integrated ventilation panels.",
     matter: "Profiles: Hindalco alloy 6063-T6. Wind Load Capacity: Tested up to 2.5 kPa. Silicone: DC 895 structural glazing sealant.",
     img: curtainImg,
   },

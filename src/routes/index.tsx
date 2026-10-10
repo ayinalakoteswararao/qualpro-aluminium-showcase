@@ -52,6 +52,7 @@ import industrialImg from "@/assets/project-industrial.jpg";
 import residentialImg from "@/assets/project-residential.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { allProjects, getCategoryStyle, getProjectSlug, type Category } from "./projects";
+import { AnimatedCounter, ScrollReveal } from "@/hooks/useScrollAnimation";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,9 +90,8 @@ const services = [
 
 const stats = [
   { k: "30+", v: "Years of experience" },
-  { k: "50+", v: "Completed projects" },
-  { k: "10+", v: "Years of success" },
-  { k: "Hyderabad", v: "Cherlapally based" },
+  { k: "10+", v: "Years of Innovation" },
+  { k: "Hyderabad", v: "Based" },
 ];
 
 const sectors = [
@@ -207,7 +207,7 @@ const whyQualProPillars = [
     icon: Building2,
     tag: "Advanced Envelope Engineering",
     category: "Technical Mastery",
-    description: "Specialized expertise across unitized curtain walls, stick glazing systems, high-rise structural glazing, aluminium composite cladding (ACP), and louvers."
+    description: "Specialized expertise across unitized curtain walls, high-rise structural glazing, spider glazing, aluminium composite cladding (ACP), and louvers."
   },
   {
     id: "05",
@@ -295,19 +295,20 @@ function Home() {
             "name": "Qual Pro Aluminium",
             "image": "https://qualproaluminium.com/assets/hero-factory.jpg",
             "url": "https://qualproaluminium.com",
-            "telephone": "+919848125106",
+            "telephone": "+919912295143",
+            "email": "admin@qualproaluminium.com",
             "priceRange": "$$$",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "# 17, IDA, Phase 1, Cherlapally",
-              "addressLocality": "Hyderabad",
-              "postalCode": "500051",
+              "streetAddress": "# 29-159/1, New Vidya Nagar Colony, Neredmet",
+              "addressLocality": "Secunderabad",
+              "postalCode": "500056",
               "addressCountry": "IN"
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": "17.4645",
-              "longitude": "78.6012"
+              "latitude": "17.4855",
+              "longitude": "78.5375"
             },
             "openingHoursSpecification": {
               "@type": "OpeningHoursSpecification",
@@ -337,56 +338,87 @@ function Home() {
             width={1920}
             height={1200}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              idx === currentHeroIdx ? "opacity-40" : "opacity-0"
+              idx === currentHeroIdx ? "opacity-40 animate-ken-burns" : "opacity-0"
             }`}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink/90" aria-hidden />
-        <div className="container-x relative min-h-[86vh] flex flex-col justify-center py-24">
-          <p className="animate-rise text-xs font-bold uppercase tracking-[0.28em]">
-            <span className="text-primary">QUAL</span>
-            <span className="text-brand-orange">PRO</span>
-            <span className="text-steel-foreground/60 ml-1.5">ALUMINIUM</span>
-          </p>
-          <h1 className="animate-rise mt-5 font-display max-w-5xl tracking-tight leading-[1.15]">
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
-              Premium Facade Company in Hyderabad
-            </span>
-            <span className="block mt-3 bg-brand-gradient bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide font-sans">
-              Transforming Skylines &amp; Redefining Modern Architecture
-            </span>
-          </h1>
-          <div className="animate-rise mt-8 max-w-4xl space-y-4">
-            <p className="text-base md:text-lg font-medium text-white/95 leading-relaxed">
-              At Qual Pro Aluminium, we specialize in end-to-end designing, manufacturing, and installing premium aluminium facade systems that combine aesthetics, functionality, and long-term performance.
-            </p>
-            <p className="text-sm md:text-base text-steel-foreground/75 leading-relaxed border-l-2 border-brand-orange pl-4">
-              With years of industry expertise, we have earned a reputation as a trusted Facade Company in Hyderabad, delivering high-quality solutions for commercial buildings, corporate offices, retail spaces, hospitals, educational institutions, hotels, and residential projects.
-            </p>
-          </div>
-          <div className="animate-rise mt-9 flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-industrial transition hover:opacity-95"
-            >
-              Get a Quote <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/products"
-              className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-steel-foreground backdrop-blur transition hover:bg-white/10"
-            >
-              View Products
-            </Link>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink/90" aria-hidden />
 
-          <dl className="mt-16 grid max-w-3xl grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s) => (
-              <div key={s.v} className="border-l-2 border-primary pl-4">
-                <dt className="font-display text-3xl font-bold text-steel-foreground">{s.k}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-wider text-steel-foreground/60">{s.v}</dd>
+        {/* Ambient floating glow elements for modern moving effect */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none animate-pulse-glow" aria-hidden />
+        <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] rounded-full bg-brand-orange/15 blur-3xl pointer-events-none animate-float-reverse" aria-hidden />
+        <div className="absolute -bottom-24 left-1/3 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none animate-float-slow" aria-hidden />
+
+        <div className="container-x relative min-h-[86vh] flex flex-col justify-center py-24">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1 backdrop-blur-md animate-float-slow mb-4">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              <p className="text-xs font-bold uppercase tracking-[0.28em]">
+                <span className="text-primary">QUAL</span>
+                <span className="text-brand-orange">PRO</span>
+                <span className="text-steel-foreground/60 ml-1.5">ALUMINIUM</span>
+              </p>
+            </div>
+
+            <h1 className="animate-rise mt-3 font-display max-w-5xl tracking-tight leading-[1.15]">
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+                Premium Facade Company in Hyderabad
+              </span>
+              <span className="block mt-3 bg-brand-gradient bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide font-sans">
+                Transforming Skylines &amp; Redefining Modern Architecture
+              </span>
+            </h1>
+
+            <div className="animate-rise mt-8 max-w-4xl space-y-4">
+              <p className="text-base md:text-lg font-medium text-white/95 leading-relaxed">
+                At Qual Pro Aluminium, we specialize in end-to-end designing, manufacturing, and installing premium aluminium facade systems that combine aesthetics, functionality, and long-term performance.
+              </p>
+              <p className="text-sm md:text-base text-steel-foreground/75 leading-relaxed border-l-2 border-brand-orange pl-4">
+                With years of industry expertise, we have earned a reputation as a trusted Facade Company in Hyderabad, delivering high-quality solutions for commercial buildings, corporate offices, retail spaces, hospitals, educational institutions, hotels, and residential projects.
+              </p>
+            </div>
+
+            <div className="animate-rise mt-9 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-industrial transition hover:opacity-95 hover:scale-105 duration-200"
+              >
+                Get a Quote <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold text-steel-foreground backdrop-blur transition hover:bg-white/10 hover:border-white/40"
+              >
+                View Products
+              </Link>
+            </div>
+
+            <dl className="mt-16 grid max-w-2xl grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="border-l-2 border-primary pl-4 transition-transform hover:translate-x-1 duration-200">
+                <dt className="font-display text-3xl font-bold text-steel-foreground">
+                  <AnimatedCounter target={30} suffix="+" />
+                </dt>
+                <dd className="mt-1 text-xs uppercase tracking-wider text-steel-foreground/60">Years of experience</dd>
               </div>
-            ))}
-          </dl>
+              <div className="border-l-2 border-brand-orange pl-4 transition-transform hover:translate-x-1 duration-200">
+                <dt className="font-display text-3xl font-bold text-steel-foreground">
+                  <AnimatedCounter target={10} suffix="+" />
+                </dt>
+                <dd className="mt-1 text-xs uppercase tracking-wider text-steel-foreground/60">Years of Innovation</dd>
+              </div>
+              <div className="border-l-2 border-primary pl-4 transition-transform hover:translate-x-1 duration-200">
+                <dt className="font-display text-3xl font-bold text-steel-foreground">Hyderabad</dt>
+                <dd className="mt-1 text-xs uppercase tracking-wider text-steel-foreground/60">Based</dd>
+              </div>
+            </dl>
+
+            {/* Brand Promise & Milestone Quote */}
+            <div className="mt-8 max-w-2xl border-l-2 border-brand-orange bg-white/5 backdrop-blur-md px-5 py-3.5 rounded-r-xl">
+              <p className="text-sm md:text-base font-semibold text-white/95 italic">
+                “10 Years of Innovation. Every Deadline a Promise. Every Project a Milestone.”
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -818,12 +850,12 @@ function Home() {
                 desc: "Factory-fabricated modular façades for rapid installation, consistent quality and large-scale performance."
               },
               {
-                title: "Stick Glazing",
-                badge: "Geometric Adaptability",
+                title: "Architectural Facade Works",
+                badge: "Custom Engineering",
                 icon: GridIcon,
                 link: "/services/$serviceId",
                 params: { serviceId: "facade-works" },
-                desc: "Site-assembled curtain-wall systems adaptable to varied geometries and architectural requirements."
+                desc: "Custom engineered facades, tailored dies and high-performance building envelope systems."
               },
               {
                 title: "Spider Glazing",
@@ -1468,7 +1500,7 @@ function Home() {
                     <Link
                       to="/projects/$projectId"
                       params={{ projectId: p.id || getProjectSlug(p.title) }}
-                      className="relative block aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border bg-secondary shadow-card hover:shadow-industrial transition-all duration-500 group cursor-pointer"
+                      className="relative block aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border bg-secondary shadow-card hover:shadow-industrial transition-all duration-500 group cursor-pointer card-shine-effect"
                     >
                       <img
                         src={p.img}
@@ -1510,7 +1542,7 @@ function Home() {
                     </div>
 
                     {/* Metadata specs */}
-                    <div className="grid grid-cols-3 gap-3 border-y border-border/80 dark:border-white/5 py-4">
+                    <div className="grid grid-cols-2 gap-4 border-y border-border/80 dark:border-white/5 py-4">
                       <div>
                         <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Client</span>
                         <span className="text-xs font-bold text-foreground mt-0.5 block truncate" title={p.client}>{p.client}</span>
@@ -1520,12 +1552,6 @@ function Home() {
                         <span className={`text-xs font-bold mt-0.5 block ${
                           p.year === "Ongoing Project" ? "text-brand-orange font-extrabold" : "text-foreground"
                         }`}>{p.year}</span>
-                      </div>
-                      <div>
-                        <span className="text-[9px] uppercase font-black text-muted-foreground tracking-widest block">Value</span>
-                        <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 block">
-                          {(p as any).value || "Custom Scope"}
-                        </span>
                       </div>
                     </div>
 
@@ -1722,12 +1748,59 @@ function Home() {
 
       {/* TESTIMONIALS SECTION */}
       <section className="py-20 bg-card border-t border-border relative overflow-hidden">
+        <div className="absolute left-1/4 top-0 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none animate-float-slow" />
+        <div className="absolute right-1/4 bottom-0 w-80 h-80 rounded-full bg-brand-orange/5 blur-3xl pointer-events-none animate-float-reverse" />
+
         <div className="container-x relative z-10">
           <SectionHeader
             eyebrow="Testimonials"
             title="What Our Clients & Partners Say"
             description="Trusted by leading developers, architects, and infrastructure companies across India."
           />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                quote: "Qual Pro Aluminium executed the terminal glazing with remarkable precision, strict adherence to airport standards, and zero disruption.",
+                author: "Senior Project Director",
+                org: "Aviation Infrastructure Partner",
+                rating: 5,
+              },
+              {
+                quote: "Their unitized facade engineering was delivered on schedule without compromising on thermal or acoustic performance for our high-rise.",
+                author: "Chief Architect",
+                org: "Commercial Tower Developer",
+                rating: 5,
+              },
+              {
+                quote: "The leadership team's technical grounding from Texas A&M and IIM Calcutta is clearly visible in their disciplined project execution.",
+                author: "General Manager",
+                org: "Tier-1 Construction Conglomerate",
+                rating: 5,
+              },
+            ].map((t, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl border border-border bg-background p-6 shadow-sm hover:shadow-industrial hover:-translate-y-1.5 transition-all duration-300 card-shine-effect flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex gap-1 text-brand-orange mb-4 text-sm">
+                    {"★".repeat(t.rating)}
+                  </div>
+                  <p className="text-sm text-foreground/90 leading-relaxed italic">
+                    "{t.quote}"
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-bold text-foreground">{t.author}</p>
+                    <p className="text-[11px] text-muted-foreground">{t.org}</p>
+                  </div>
+                  <div className="h-2 w-2 rounded-full bg-primary/60 group-hover:bg-primary group-hover:scale-125 transition-all" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

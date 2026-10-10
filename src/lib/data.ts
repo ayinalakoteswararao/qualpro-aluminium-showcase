@@ -57,21 +57,21 @@ export const servicesList: ServiceItem[] = [
     img: curtainImg,
     icon: Layers,
     desc: "Custom-engineered curtain walling solutions designed to bear structural loads, resist wind pressures, and provide outstanding thermal insulation for mid-rise and high-rise building envelopes.",
-    longDesc: "Our curtain wall systems represent the peak of structural facade engineering, creating breathtaking, glazed building envelopes that meet the highest international standards. We manage the entire lifecycle of the system—from layout drafting and static engineering calculations to precision thermal modeling and site anchors. Every profile is chosen to match local wind pressures, thermal requirements, and structural movements, ensuring a safe, watertight, and long-lasting envelope.\n\nOur service includes wind load tests, seismic design validation, and compatibility analyses with concrete and steel structural members. Whether it is a traditional stick system assembled on-site or a custom modular facade, we deliver reliability and architectural beauty.",
+    longDesc: "Our curtain wall systems represent the peak of structural facade engineering, creating breathtaking, glazed building envelopes that meet the highest international standards. We manage the entire lifecycle of the system—from layout drafting and static engineering calculations to precision thermal modeling and site anchors. Every profile is chosen to match local wind pressures, thermal requirements, and structural movements, ensuring a safe, watertight, and long-lasting envelope.\n\nOur service includes wind load tests, seismic design validation, and compatibility analyses with concrete and steel structural members. Whether it is an engineered profile system or a custom modular facade, we deliver reliability and architectural beauty.",
     features: [
       "Thermally broken profiles for reduced heat transfer",
       "Site-tested for air, water, and static structural infiltration",
       "Integrates seamlessly with structural silicone or captive pressure plate glazing"
     ],
     specs: {
-      "System Type": "Stick-built / Conventional",
+      "System Type": "Engineered Architectural Curtain Wall",
       "Thermal Insulation": "U-value down to 1.6 W/m²K",
       "Wind Resistance": "Up to 3.5 KPa design pressure",
       "Water Tightness": "Tested to ASTM E331 guidelines",
       "Air Permeability": "Complies with ASTM E283 standards"
     },
     seoTitle: "Aluminium Curtain Wall Systems Design & Installation | Qualpro",
-    seoDesc: "Precision-engineered curtain wall systems for mid-to-high-rise buildings. Learn about our thermally broken, wind-resistant stick and pressure plate facades."
+    seoDesc: "Precision-engineered curtain wall systems for mid-to-high-rise buildings. Learn about our thermally broken, wind-resistant structural glazing and pressure plate facades."
   },
   {
     id: "unitized-glazing",
@@ -251,7 +251,7 @@ export const productsList: ProductItem[] = [
     img: curtainImg,
     badge: "Wind Load: 3.5 KPa",
     desc: "Custom-engineered curtain walling systems for high-performance building envelopes, offering structural strength and modern design.",
-    longDesc: "Qualpro's Curtain Wall Systems are engineered to meet the structural and aesthetic requirements of modern high-rise architecture. Available in both stick-built configurations (assembled on site) and unitized layouts, our curtain walls support dead loads and resist wind loads, steering wind forces safely back to the building structure.\n\nWith integrated thermal breaks and high-quality EPDM gaskets, these systems prevent thermal bridging, significantly lowering building HVAC costs. They also provide excellent sound isolation, making them ideal for urban office environments.",
+    longDesc: "Qualpro's Curtain Wall Systems are engineered to meet the structural and aesthetic requirements of modern high-rise architecture. Available in engineered bespoke configurations and unitized layouts, our curtain walls support dead loads and resist wind loads, steering wind forces safely back to the building structure.\n\nWith integrated thermal breaks and high-quality EPDM gaskets, these systems prevent thermal bridging, significantly lowering building HVAC costs. They also provide excellent sound isolation, making them ideal for urban office environments.",
     specs: ["Alloy: 6063 T6", "Glass: 24-32mm DGU", "Profile Depth: Up to 150mm"],
     technicalDetails: {
       "Profile Material": "Extruded Aluminium Alloy 6063 T6 / T5",
@@ -262,7 +262,7 @@ export const productsList: ProductItem[] = [
       "Wind Pressure Rating": "Certified for up to 3.5 KPa wind loads"
     },
     features: [
-      "Stick-built and modular facades tailored to custom architectural grids",
+      "Modular and custom engineered facades tailored to architectural grids",
       "Exhaustively tested for water tightness and air infiltration",
       "Slim mullion profiles that maximize daylight entry"
     ],

@@ -55,7 +55,7 @@ export function TermsAndConditions() {
               <div>
                 <h2 className="font-display text-xl font-bold text-foreground">2. Fabrication & Tolerances</h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  All custom extrusions, unitized frames, and panels are fabricated in our ISO 9001:2015 certified plant in Cherlapally, Hyderabad. Dimensions are fabricated according to approved shop drawings, adhering strictly to the American Architectural Manufacturers Association (AAMA) standard tolerances.
+                  All custom extrusions, unitized frames, and panels are fabricated in our state-of-the-art manufacturing plant in Cherlapally, Hyderabad. Dimensions are fabricated according to approved shop drawings, adhering strictly to the American Architectural Manufacturers Association (AAMA) standard tolerances.
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export function TermsAndConditions() {
             </div>
 
             <div className="border-t border-border pt-8 text-center text-xs text-muted-foreground">
-              Last updated: July 2026. For detailed contract enquiries, please contact info@qualproaluminium.com.
+              Last updated: July 2026. For detailed contract enquiries, please contact admin@qualproaluminium.com.
             </div>
 
           </div>

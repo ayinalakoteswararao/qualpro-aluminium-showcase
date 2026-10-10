@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Request a free technical review and quote for unitized glazing, spider glazing, ACP cladding, and premium facade systems. Contact our Cherlapally office in Hyderabad.",
+          "Request a free technical review and quote for unitized glazing, spider glazing, ACP cladding, and premium facade systems. Contact our office in Secunderabad.",
       },
       { property: "og:title", content: "Contact Qual Pro Aluminium | Facade Contractor Hyderabad" },
       { property: "og:description", content: "Get a custom engineering review and estimate for your facade system project." },
@@ -118,7 +118,7 @@ function Contact() {
       <PageHero
         eyebrow="Get in Touch"
         title="Connect With Our Facade Experts"
-        description="Send us your drawing specifications or project requirements. Our engineering team in Cherlapally will respond with a full technical review and commercial estimate."
+        description="Send us your drawing specifications or project requirements. Our engineering team will respond with a full technical review and commercial estimate."
         imageSrc={commercialImg}
       />
 
@@ -134,7 +134,7 @@ function Contact() {
                 <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full bg-primary/15 blur-3xl pointer-events-none" />
                 
                 <h2 className="font-display text-2xl font-bold text-white tracking-tight">Qualpro Headquarters</h2>
-                <p className="mt-1 text-xs text-steel-foreground/50">Factory operations & main corporate office</p>
+                <p className="mt-1 text-xs text-steel-foreground/50">Corporate office & operations</p>
                 
                 <div className="mt-8 space-y-6">
                   <div className="flex items-start gap-4">
@@ -142,11 +142,11 @@ function Contact() {
                       <MapPin className="h-5 w-5" />
                     </div>
                     <div>
-                      <span className="block text-[10px] uppercase tracking-wider text-steel-foreground/40 font-bold">Office & Factory Address</span>
+                      <span className="block text-[10px] uppercase tracking-wider text-steel-foreground/40 font-bold">Office Address</span>
                       <span className="text-sm font-medium mt-1 block text-steel-foreground/90 leading-relaxed">
                         Qualpro Aluminium Private Limited,<br />
-                        # 17, IDA, Phase 1,<br />
-                        Cherlapally, Hyderabad - 500051
+                        # 29-159/1, New Vidya Nagar Colony,<br />
+                        Neredmet, Secunderabad - 500056
                       </span>
                     </div>
                   </div>
@@ -157,8 +157,8 @@ function Contact() {
                     </div>
                     <div>
                       <span className="block text-[10px] uppercase tracking-wider text-steel-foreground/40 font-bold">Direct Lines</span>
-                      <a href="tel:+919848125106" className="text-sm font-semibold mt-1 block text-white hover:text-primary transition-colors">
-                        +91 98481 25106
+                      <a href="tel:+919912295143" className="text-sm font-semibold mt-1 block text-white hover:text-primary transition-colors">
+                        +91 99122 95143
                       </a>
                       <span className="text-xs text-steel-foreground/50 block mt-0.5">Mon - Sat, 9:00 AM - 6:00 PM</span>
                     </div>
@@ -170,8 +170,8 @@ function Contact() {
                     </div>
                     <div>
                       <span className="block text-[10px] uppercase tracking-wider text-steel-foreground/40 font-bold">Commercial & Technical</span>
-                      <a href="mailto:info@qualproaluminium.com" className="text-sm font-semibold mt-1 block text-white hover:text-primary transition-colors">
-                        info@qualproaluminium.com
+                      <a href="mailto:admin@qualproaluminium.com" className="text-sm font-semibold mt-1 block text-white hover:text-primary transition-colors">
+                        admin@qualproaluminium.com
                       </a>
                     </div>
                   </div>
@@ -184,7 +184,7 @@ function Contact() {
               <div className="w-full overflow-hidden rounded-3xl border border-border shadow-industrial bg-card p-2 group">
                 <iframe
                   title="Qual Pro Aluminium Location Map"
-                  src="https://www.google.com/maps?q=Qualpro+Aluminium+Private+Limited,+Cherlapally,+Hyderabad&output=embed"
+                  src="https://www.google.com/maps?q=29-159%2F1%2C+New+Vidya+Nagar+Colony%2C+Neredmet%2C+Secunderabad%2C+500056&output=embed"
                   className="h-64 w-full rounded-2xl border border-border transition-all duration-500 group-hover:opacity-95"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -252,7 +252,7 @@ function Contact() {
                         required
                         value={quotePhone}
                         onChange={(e) => setQuotePhone(e.target.value)}
-                        placeholder="e.g. +91 98481 25106"
+                        placeholder="e.g. +91 99122 95143"
                         className="mt-2 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
                       />
                     </InputWrapper>

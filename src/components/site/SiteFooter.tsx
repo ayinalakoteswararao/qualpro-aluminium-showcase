@@ -89,15 +89,15 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2.5 text-sm text-steel-foreground/75">
             <li className="flex items-start gap-3">
               <MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />
-              <span className="leading-relaxed"># 17, IDA Phase 1, Cherlapally, Hyderabad - 500051</span>
+              <span className="leading-relaxed"># 29-159/1, New Vidya Nagar Colony, Neredmet, Secunderabad - 500056</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-primary shrink-0" />
-              <a href="tel:+919848125106" className="hover:text-primary transition-colors">+91 98481 25106</a>
+              <a href="tel:+919912295143" className="hover:text-primary transition-colors">+91 99122 95143</a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-primary shrink-0" />
-              <a href="mailto:info@qualproaluminium.com" className="hover:text-primary transition-colors">info@qualproaluminium.com</a>
+              <a href="mailto:admin@qualproaluminium.com" className="hover:text-primary transition-colors">admin@qualproaluminium.com</a>
             </li>
           </ul>
         </div>
@@ -112,7 +112,7 @@ export function SiteFooter() {
           </p>
           <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/5 border border-white/5 text-xs text-steel-foreground/80">
             <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
-            <span>ISO 9001:2015 Certified Plant</span>
+            <span>Precision Fabrication Facility</span>
           </div>
         </div>
 

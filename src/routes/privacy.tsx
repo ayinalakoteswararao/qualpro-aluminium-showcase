@@ -81,7 +81,7 @@ export function PrivacyPolicy() {
             </div>
 
             <div className="border-t border-border pt-8 text-center text-xs text-muted-foreground">
-              Last updated: July 2026. For privacy concerns, please contact info@qualproaluminium.com.
+              Last updated: July 2026. For privacy concerns, please contact admin@qualproaluminium.com.
             </div>
 
           </div>
