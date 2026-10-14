@@ -7,7 +7,9 @@ import {
   FileText,
   HelpCircle,
   Award,
-  CheckCircle2
+  CheckCircle2,
+  Loader2,
+  AlertCircle
 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import commercialImg from "@/assets/project-commercial.jpg";
@@ -49,10 +51,15 @@ const faqs = [
   },
 ];
 
+// Web3Forms Access Key (configured in .env or Vercel Environment Variables)
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "d0258ef3-c695-4e29-8266-74c4836f9293";
+
 function Contact() {
   const [activeTab, setActiveTab] = useState<"quote" | "enquiry">("quote");
   const [sentQuote, setSentQuote] = useState(false);
   const [sentEnquiry, setSentEnquiry] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   // States for forms
   const [quoteName, setQuoteName] = useState("");
@@ -68,42 +75,121 @@ function Contact() {
   const [enquirySubject, setEnquirySubject] = useState("");
   const [enquiryMessage, setEnquiryMessage] = useState("");
 
-  const handleQuoteSubmit = (e: React.FormEvent) => {
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormError(null);
 
-    // Trigger Meta Pixel Conversion Event
-    trackPixelEvent("Lead", {
-      content_category: "Quote Request",
-      content_name: quoteSector,
-      content_area_sqft: quoteArea,
-      content_location: quoteLocation,
-    });
+    const key = WEB3FORMS_ACCESS_KEY;
+    if (!key) {
+      setFormError("Web3Forms Access Key is not configured yet. Please set VITE_WEB3FORMS_ACCESS_KEY or contact us directly on WhatsApp / Phone.");
+      setIsSubmitting(false);
+      return;
+    }
 
-    setSentQuote(true);
-    // Reset fields
-    setQuoteName("");
-    setQuotePhone("");
-    setQuoteEmail("");
-    setQuoteLocation("");
-    setQuoteArea("");
-    setQuoteRequirement("");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: key,
+          subject: `New Project Quote Request: ${quoteName} (${quoteSector})`,
+          from_name: "Qualpro Aluminium Website",
+          replyto: quoteEmail,
+          "Full Name": quoteName,
+          "Phone Number": quotePhone,
+          "Email Address": quoteEmail,
+          "Project Location": quoteLocation,
+          "Sector": quoteSector,
+          "Estimated Area": quoteArea,
+          "Technical Scope / Requirements": quoteRequirement,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        // Trigger Meta Pixel Conversion Event
+        trackPixelEvent("Lead", {
+          content_category: "Quote Request",
+          content_name: quoteSector,
+          content_area_sqft: quoteArea,
+          content_location: quoteLocation,
+        });
+
+        setSentQuote(true);
+        // Reset fields
+        setQuoteName("");
+        setQuotePhone("");
+        setQuoteEmail("");
+        setQuoteLocation("");
+        setQuoteArea("");
+        setQuoteRequirement("");
+      } else {
+        setFormError(result.message || "Unable to send request. Please try again or WhatsApp us directly.");
+      }
+    } catch {
+      setFormError("Network error. Please check your connection or contact us via WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleEnquirySubmit = (e: React.FormEvent) => {
+  const handleEnquirySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setFormError(null);
 
-    // Trigger Meta Pixel Conversion Event
-    trackPixelEvent("Contact", {
-      content_category: "General Inquiry",
-      content_name: enquirySubject,
-    });
+    const key = WEB3FORMS_ACCESS_KEY;
+    if (!key) {
+      setFormError("Web3Forms Access Key is not configured yet. Please set VITE_WEB3FORMS_ACCESS_KEY or contact us directly on WhatsApp / Phone.");
+      setIsSubmitting(false);
+      return;
+    }
 
-    setSentEnquiry(true);
-    // Reset fields
-    setEnquiryName("");
-    setEnquiryEmail("");
-    setEnquirySubject("");
-    setEnquiryMessage("");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: key,
+          subject: `General Inquiry: ${enquirySubject} (${enquiryName})`,
+          from_name: "Qualpro Aluminium Website",
+          replyto: enquiryEmail,
+          "Full Name": enquiryName,
+          "Email Address": enquiryEmail,
+          "Subject": enquirySubject,
+          "Message": enquiryMessage,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        // Trigger Meta Pixel Conversion Event
+        trackPixelEvent("Contact", {
+          content_category: "General Inquiry",
+          content_name: enquirySubject,
+        });
+
+        setSentEnquiry(true);
+        // Reset fields
+        setEnquiryName("");
+        setEnquiryEmail("");
+        setEnquirySubject("");
+        setEnquiryMessage("");
+      } else {
+        setFormError(result.message || "Unable to send message. Please try again or WhatsApp us directly.");
+      }
+    } catch {
+      setFormError("Network error. Please check your connection or contact us via WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Automatically scroll to success message
@@ -202,6 +288,7 @@ function Contact() {
                   onClick={() => {
                     setActiveTab("quote");
                     setSentQuote(false);
+                    setFormError(null);
                   }}
                   className={`flex-1 flex items-center justify-center gap-2 rounded-xl py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                     activeTab === "quote"
@@ -215,6 +302,7 @@ function Contact() {
                   onClick={() => {
                     setActiveTab("enquiry");
                     setSentEnquiry(false);
+                    setFormError(null);
                   }}
                   className={`flex-1 flex items-center justify-center gap-2 rounded-xl py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                     activeTab === "enquiry"
@@ -317,10 +405,29 @@ function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-industrial hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-industrial hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="h-4 w-4" /> Send Estimation Request
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" /> Submitting Request...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" /> Send Estimation Request
+                      </>
+                    )}
                   </button>
+
+                  {formError && activeTab === "quote" && (
+                    <div className="flex gap-3 rounded-2xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-500 animate-rise">
+                      <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block font-semibold">Unable to submit request</strong>
+                        <span className="text-xs mt-1 block">{formError}</span>
+                      </div>
+                    </div>
+                  )}
 
                   {sentQuote && (
                     <div className="flex gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-foreground animate-rise">
@@ -392,10 +499,29 @@ function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-industrial hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-industrial hover:opacity-95 active:scale-[0.99] transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="h-4 w-4" /> Send Message
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" /> Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" /> Send Message
+                      </>
+                    )}
                   </button>
+
+                  {formError && activeTab === "enquiry" && (
+                    <div className="flex gap-3 rounded-2xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-500 animate-rise">
+                      <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block font-semibold">Unable to send message</strong>
+                        <span className="text-xs mt-1 block">{formError}</span>
+                      </div>
+                    </div>
+                  )}
 
                   {sentEnquiry && (
                     <div className="flex gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-foreground animate-rise">

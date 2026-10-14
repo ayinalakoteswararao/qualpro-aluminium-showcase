@@ -24,6 +24,7 @@ const majorProjectsDetails: Record<string, {
   capabilities: string[];
   highlights?: string[];
   scopeDetailed?: { title: string; desc: string }[];
+  value?: string;
 }> = {
   "tirupati-airport": {
     subtitle: "State-of-the-Art Terminal Façade Infrastructure Execution",
@@ -379,6 +380,13 @@ function ProjectDetailComponent() {
                     <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Sector</span>
                     <span className="col-span-7 font-bold text-foreground text-right lg:text-left">{project.category}</span>
                   </div>
+
+                  {detail?.value && (
+                    <div className="grid grid-cols-12 px-6 py-4.5 text-xs">
+                      <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Package / Value</span>
+                      <span className="col-span-7 font-bold text-primary text-right lg:text-left">{detail.value}</span>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-12 px-6 py-4.5 text-xs">
                     <span className="col-span-5 font-bold text-muted-foreground uppercase tracking-wider">Scope of Work</span>
